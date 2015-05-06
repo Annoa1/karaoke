@@ -57,6 +57,7 @@ class UserManager {
   }
 
   // Retourne tous les utilisateurs
+  // TODO : enlever l'admin
   public function getList() {
     $users = [];
 
@@ -75,6 +76,21 @@ class UserManager {
     }
 
     return $users;
+  }
+
+  public function getAdmin() {
+
+    $rq = $this->_db->query(
+      'SELECT USR_ID as id,
+      USR_LOG as login,
+      USR_MAIL as mail,
+      USR_PWD as pwd,
+      USR_COLOR as color
+      FROM T_USER_USR
+      WHERE USR_LOG = "admin" '
+      );
+    $donnees = $rq->fetch(PDO::FETCH_ASSOC);
+    return new User($donnees);
   }
 
   // Modifie un user dans la BDD

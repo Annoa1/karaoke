@@ -6,7 +6,7 @@ class User {
   private $_login;
   private $_mail;
   private $_pwd;
-  private $_color;
+  private $_color = "";
 
   public function __construct($donnees) {
 
@@ -16,7 +16,7 @@ class User {
 
   }
 
-  public function hydrate(array $donnees) {
+  private function hydrate(array $donnees) {
     foreach ($donnees as $key => $value)
     {
       // On récupère le nom du setter correspondant à l'attribut.
@@ -83,7 +83,9 @@ class User {
     }
     // TODO : vérifier la longueur min et max
 
-    $this->_pwd = password_hash($pwd, PASSWORD_BCRYPT);
+    $this->_pwd = $pwd;
+
+    // $this->_pwd = password_hash($pwd, PASSWORD_BCRYPT);
   }
 
   // Couleur hexo = string de 6 caractères
