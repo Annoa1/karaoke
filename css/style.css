@@ -1,0 +1,138 @@
+*
+{
+	margin: 0;
+	padding: 0;
+}
+
+html, body 
+{
+	height: 100%;
+}
+
+a 
+{
+	text-decoration: none;
+	color: #000000;
+}
+
+header 
+{
+	width: 90%;
+	margin: 0 auto;
+	border-bottom: 1px solid #6ab9da;
+	background-color: #dfeffb;
+}
+
+.topHeader 
+{
+	margin-left: 10px;
+}
+
+.topHeader img 
+{
+	margin-top: 10px;
+}
+
+.topHeader h1 
+{
+	font-size: 16px;
+	font-weight: 300;
+	font-family: arial;
+	position: absolute;
+	/* margin: top right bottom left; */
+	margin: 45px 0 0 20px;
+	display: inline-block;
+}
+
+.botHeader 
+{
+	height: 50px;
+}
+
+.menuHeader 
+{
+	float: right;
+	margin: 5px auto;
+	margin-right: 50px;
+}
+
+.menuHeader ul 
+{
+	
+}
+
+.menuHeader ul li 
+{
+	padding-left: 30px;
+	display: inline-block;
+}
+
+.menuHeader ul li a 
+{
+	width: 100px;
+	display: block;
+	padding: 5px 10px;
+	text-align: center;
+	border-radius: 50px;
+	border: 1px solid #6ab9da;
+
+	background-image: -webkit-gradient(linear,right top,left bottom,color-stop(0, #FFFFFF),color-stop(1, #6AB8DA));
+	background-image: -o-linear-gradient(left bottom, #FFFFFF 0%, #6AB8DA 100%);
+	background-image: -moz-linear-gradient(left bottom, #FFFFFF 0%, #6AB8DA 100%);
+	background-image: -webkit-linear-gradient(left bottom, #FFFFFF 0%, #6AB8DA 100%);
+	background-image: -ms-linear-gradient(left bottom, #FFFFFF 0%, #6AB8DA 100%);
+	background-image: linear-gradient(to left bottom, #FFFFFF 0%, #6AB8DA 100%);
+}
+
+.mainContainer 
+{
+	height: 100%;
+	min-height: 100%;
+	height: auto;
+
+	width: 90%;
+	margin: 0 auto;
+	background-color: #dfeffb;
+}
+
+.content 
+{
+	height: 200px;
+}
+
+.content 
+{
+	height: 200px;
+}
+
+#videoContainer {
+ width: 640px;
+ height: 360px;
+ margin: 0 auto;
+ top: 50px;
+ position: relative;
+ background-color: red;
+}
+
+#videoContainer video {
+ width: 100%;
+ height: 100%;
+ margin-top: 30px;
+ background-color: blue;
+}
+
+footer 
+{
+	width: 90%;
+	height: 60px;
+	margin: 0 auto;
+	border-top: 1px solid #6ab9da;
+	background-color: #dfeffb;
+}
+
+footer p 
+{
+	padding-top: 24px;
+	text-align: center;
+}
+
