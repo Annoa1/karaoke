@@ -20,7 +20,8 @@ header
 	width: 90%;
 	margin: 0 auto;
 	border-bottom: 1px solid #6ab9da;
-	background-color: #dfeffb;
+	background-color: #5F9EA0;
+	/*background-color: #dfeffb;*/
 }
 
 .topHeader 
@@ -35,9 +36,9 @@ header
 
 .topHeader h1 
 {
-	font-size: 16px;
+	font-size: 19px;
 	font-weight: 300;
-	font-family: arial;
+	font-family: fantasy;
 	position: absolute;
 	/* margin: top right bottom left; */
 	margin: 45px 0 0 20px;
@@ -105,20 +106,26 @@ header
 	height: 200px;
 }
 
-#videoContainer {
- width: 640px;
- height: 360px;
- margin: 0 auto;
- top: 50px;
- position: relative;
- background-color: red;
+#videoContainer
+{
+	width: 640px;
+	height: 360px;
+	margin: 0 auto;
+	top: 50px;
+	position: relative;
+	/*background-color: red;*/
 }
 
-#videoContainer video {
- width: 100%;
- height: 100%;
- margin-top: 30px;
- background-color: blue;
+#videoContainer video
+{
+	height: 100%;
+	margin-top: 30px;
+	/*background-color: blue;*/
+}
+
+#mainContainerContent
+{
+		padding-top: 25px;
 }
 
 footer 
@@ -127,7 +134,8 @@ footer
 	height: 60px;
 	margin: 0 auto;
 	border-top: 1px solid #6ab9da;
-	background-color: #dfeffb;
+	background-color: #5F9EA0;
+	/*background-color: #dfeffb;*/
 }
 
 footer p 
