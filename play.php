@@ -12,21 +12,15 @@
 		<?php include 'header.php'; ?>
 
 		<div class="mainContainer">
-
-			<div id="play">
-				<a href="play.php"><img src="./img/kogmaw.png"></a>
-				<div id="choice">
-					<a href=""><img src="./img/octopus_cute_green.png"></a>
-					<a href=""><img src="./img/octopus_cute_pink.png"></a>
-					<a href=""><img src="./img/octopus_cute_purple.png"></a>
-				</div>								
+			<div id="videoContainer">
+				<video controls src="./video/ponponpon.mp4">
+					<track kind="subtitles" src="./subtitle/ponponpon2.vtt" srclang="en" default></track>
+				</video>
+				
 			</div>
-
 		</div>
 
 		<?php include 'footer.php'; ?>
 
 	</body>
 </html>
-<!-- AVEC HTML 5 -->
-<!-- <video src=«  »></video> -->
