@@ -1,19 +1,17 @@
-<!doctype html>
-<html lang="fr">
-    <head>
-      <meta charset="utf-8">
-      <link rel="stylesheet" href="./css/style.css">
-    </head>
+<header>
+    <div class="topHeader">
+        <img src="./img/octosing_logo.png" width="120" height="120">
+        <h1>OKTOSING - Les chansons poulpesques d'OKTO</h1>
+    </div>
 
-    <body>
-        <div id="headerorg">           
-            <h5><img id="octopusheader" src="img/octopusheader.png">OKTOSING - Les chansons poulpesque d'OKTO</h5>
-            <!-- Link sur connexion et inscription -->
-            <h3><a href="./connexion.php">Connexion</a></h3>
-            
-            <h3><a href="./inscription.php">Inscription</a></h3>
-        </div>
-    </body>
-    
-    <script src="script.js"></script>
-</html>
+    <div class="botHeader">
+        <nav class="menuHeader">
+            <ul>
+                <li><a href="index.php">Accueil</a></li>
+                <li><a href="contact.php">Contact</a></li>
+                <li><a href="connexion.php">Connexion</a></li>
+                <li><a href="inscription.php">Inscription</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
