@@ -36,12 +36,23 @@ header
 
 .topHeader h1 
 {
-	font-size: 19px;
+	font-size: 25px;
 	font-weight: 300;
 	font-family: fantasy;
 	position: absolute;
 	/* margin: top right bottom left; */
 	margin: 45px 0 0 20px;
+	display: inline-block;
+}
+
+.topHeader h4
+{
+	/*font-size: 25px;*/
+	font-weight: 300;
+	font-family: fantasy;
+	position: absolute;
+	/* margin: top right bottom left; */
+	margin: 80px 0 0 20px;
 	display: inline-block;
 }
 
@@ -96,6 +107,38 @@ header
 	background-color: #dfeffb;
 }
 
+#play
+{
+	width: 100%;
+	text-align: center;
+	margin:0 auto;
+	top: 50px;
+
+	position: relative;
+
+}
+
+#play img
+{
+	/*width: 40%;*/
+	width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+    vertical-align: text-bottom;
+}
+
+#choice
+{
+	margin: 50px auto;
+	text-align: center;
+}
+
+#choice img
+{
+	width:200px;
+	display:inline-block;
+}
+
 .content 
 {
 	height: 200px;
@@ -125,7 +168,7 @@ header
 
 #mainContainerContent
 {
-		padding-top: 25px;
+	padding-top: 25px;
 }
 
 footer 

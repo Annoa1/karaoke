@@ -12,16 +12,12 @@
 		<?php include 'header.php'; ?>
 
 		<div class="mainContainer">
-
-			<div id="play">
-				<a><img src="./img/kogmaw.png"></a>
-				<div id="choice">
-					<a href="play.php">Pays A<img src="./img/octopus_cute_green.png"></a>
-					<a href="play.php">Pays A<img src="./img/octopus_cute_pink.png"></a>
-					<a href="play.php">Pays B<img src="./img/octopus_cute_purple.png"></a>
-				</div>								
+			<div id="videoContainer">
+				<video controls src="./video/ponponpon.mp4">
+					<track kind="subtitles" src="./subtitle/ponponpon2.vtt" srclang="en" default></track>
+				</video>
+				
 			</div>
-
 		</div>
 
 		<?php include 'footer.php'; ?>
