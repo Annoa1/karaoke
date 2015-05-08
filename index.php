@@ -14,11 +14,11 @@
 		<div class="mainContainer">
 
 			<div id="play">
-				<a href="play.php"><img src="./img/kogmaw.png"></a>
+				<a><img src="./img/kogmaw.png"></a>
 				<div id="choice">
-					<a href=""><img src="./img/octopus_cute_green.png"></a>
-					<a href=""><img src="./img/octopus_cute_pink.png"></a>
-					<a href=""><img src="./img/octopus_cute_purple.png"></a>
+					<a href="play.php">Pays A<img src="./img/octopus_cute_green.png"></a>
+					<a href="play.php">Pays A<img src="./img/octopus_cute_pink.png"></a>
+					<a href="play.php">Pays B<img src="./img/octopus_cute_purple.png"></a>
 				</div>								
 			</div>
 
@@ -28,5 +28,3 @@
 
 	</body>
 </html>
-<!-- AVEC HTML 5 -->
-<!-- <video src=«  »></video> -->

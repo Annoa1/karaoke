@@ -107,22 +107,35 @@ header
 	background-color: #dfeffb;
 }
 
+#play
+{
+	width: 100%;
+	text-align: center;
+	margin:0 auto;
+	top: 50px;
+
+	position: relative;
+
+}
+
 #play img
 {
-	width: 40%;
+	/*width: 40%;*/
+	width: 450px;
     margin-left: auto;
     margin-right: auto;
+    vertical-align: text-bottom;
 }
 
 #choice
 {
-	width: 100%;
-	margin: 0 auto;
+	margin: 50px auto;
+	text-align: center;
 }
 
 #choice img
 {
-	width:20%;
+	width:200px;
 	display:inline-block;
 }
 
@@ -155,7 +168,7 @@ header
 
 #mainContainerContent
 {
-		padding-top: 25px;
+	padding-top: 25px;
 }
 
 footer 
