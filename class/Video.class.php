@@ -12,15 +12,17 @@ class Video {
 
 
 // Récuperation des attributs
-  public function id() {
+  public function getId()//id() 
+  {
     return $this->_id;
   }
 
-  public function title() {
+  public function getTitle() 
+  {
     return $this->_title;
   }
 
-  public function year() {
+  public function getYear() {
     return $this->_year;
   }
 

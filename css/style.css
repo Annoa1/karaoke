@@ -130,18 +130,13 @@ header
 #choice
 {
 	margin: 50px auto;
-	text-align: center;
+	text-align: bottom;
 }
 
 #choice img
 {
 	width:200px;
 	display:inline-block;
-}
-
-.content 
-{
-	height: 200px;
 }
 
 .content 
