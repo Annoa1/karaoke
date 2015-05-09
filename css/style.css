@@ -127,10 +127,16 @@ header
     vertical-align: text-bottom;
 }
 
+.start
+{
+	cursor:pointer;
+}
+
 #choice
 {
 	margin: 50px auto;
 	text-align: bottom;
+	display:none;
 }
 
 #choice img
