@@ -1,6 +1,6 @@
 <header>
     <div class="topHeader">
-        <img src="./img/octosing_logo.png" width="120" height="120">
+        <a href="index.php"><img src="./img/octosing_logo.png" width="120" height="120"></a>
         <h1>OKTOSING - Les chansons poulpesques d'OKTO</h1>
         <h4>Random Karaoke Party</h4>
     </div>
