@@ -13,10 +13,14 @@
 
 		<div class="mainContainer">
 			<div id="videoContainer">
-				<video controls src="./video/ponponpon.mp4">
-					<track kind="subtitles" src="./subtitle/ponponpon2.vtt" srclang="en" default></track>
-				</video>
 				
+				<video controls >
+					<source src="./video/CanabasseNaGnouDem.mp4" type="video/mp4"/>
+					<track kind="subtitles" src="./video/CanabasseNaGnouDem.vtt" srclang="en" default></track>
+					<source src="./video/ponponpon.mp4" type="video/mp4"/>
+
+				</video>
+		
 			</div>
 		</div>
 

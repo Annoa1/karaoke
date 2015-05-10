@@ -8,7 +8,6 @@ class Video {
 
   
   
-}
 
 
 // Récuperation des attributs
@@ -27,14 +26,21 @@ class Video {
   }
 
   // Valorisation des attributs
- public function setTitle($title) {
+
+   public function setid($id) {
+    if (is_string($id)) {
+      
+      $this->_id = $id;
+    }
+  }
+ public function settitle($title) {
     if (is_string($title)) {
       
       $this->_title = $title;
     }
   }
 
-   public function setYear($year) {
+   public function setyear($year) {
     if (is_string($year)) {
       
       $this->_year = $year;
@@ -63,5 +69,6 @@ class Video {
         $this->$method($value);
       }
     }
+  }
   }
 ?>

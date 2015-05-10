@@ -1,0 +1,34 @@
+ID,Nom,Date de début,Date de fin,Durée,Avancée,Responsable,Prédécesseurs,Numéro hiérarchique,Coût,Lien internet,Ressources,Notes
+2,Création des classes,20/03/15,07/05/15,35,2,Elyse,,1,0.0,,Christelle;Elyse;Léonie,
+34,"  Class Video",20/03/15,26/03/15,5,5,Léonie,,1.1,0.0,,Léonie,
+35,"  Class Video Manager",27/03/15,02/04/15,5,5,Léonie,34,1.2,0.0,,Léonie,
+36,"  Class User",23/03/15,23/03/15,0,4,,,1.3,0,,,
+37,"  Class User Manager",23/03/15,25/03/15,3,0,Elyse,36,1.4,0.0,,Elyse,
+38,"  Class Pays",27/04/15,29/04/15,3,0,,,1.5,0,,,
+39,"  Class Pays Manager",30/04/15,07/05/15,6,0,,38,1.6,0,,,
+40,"  Class Artiste",30/04/15,07/05/15,6,0,,,1.7,0.0,,Léonie,
+41,"  Class Artiste Manager",04/05/15,06/05/15,3,0,Léonie,,1.8,0.0,,Léonie,
+3,Création de la base de donnée,23/03/15,24/03/15,2,0,Léonie,,2,0.0,,Léonie,
+44,"  Modélisation UML",23/03/15,24/03/15,2,0,,,2.1,0,,,
+45,"  Script SQL",23/03/15,24/03/15,2,0,,,2.2,0,,,
+112,"  Modelisation Merise",23/03/15,23/03/15,1,0,,,2.3,0,,,
+14,Interface Graphiqe,27/04/15,07/05/15,9,0,,,3,0.0,,,
+17,"  interface graphique-Page d'acceuil",30/04/15,07/05/15,6,0,,,3.1,0,,,
+15,"  interface graphique-page inscrit",27/04/15,30/04/15,4,0,Christelle,,3.2,0.0,,Christelle;Elyse;Léonie,
+16,"  interface graphique-page administrateur",04/05/15,05/05/15,2,0,,,3.3,0,,,
+62,"    admin-video.php",04/05/15,05/05/15,2,0,,,3.3.1,0,,,"	"
+63,"    admin-user.php",04/05/15,05/05/15,2,0,,,3.3.2,0,,,
+64,"    admin-nav.php",04/05/15,05/05/15,2,0,,,3.3.3,0,,,
+65,Acquisition de compétences,16/03/15,08/05/15,40,0,,,4,0,,,
+81,"  Tp-web",16/03/15,08/05/15,40,0,,,4.1,0,,,
+124,"  Cours web",16/03/15,08/05/15,40,0,,,4.2,0,,,
+67,Redaction rapport,11/05/15,15/05/15,5,0,,,5,0,,,
+68,Presentation powerpoint,11/05/15,12/05/15,2,0,,,6,0,,,
+79,Préparation présentation,14/05/15,15/05/15,2,0,,,7,0,,,
+131,Intégration Des modules,05/05/15,07/05/15,3,0,,,8,0,,,
+
+
+ID,Nom,Rôle par défaut,Courriel,Téléphone,Rôle d'affectation,Taux normal
+0,Christelle,SoftwareDevelopment:5,,,,0
+1,Elyse,SoftwareDevelopment:2,,,,0
+2,Léonie,Default:1,,,,0
