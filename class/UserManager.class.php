@@ -113,6 +113,32 @@ class UserManager {
     $rq->execute();
   }
 
+  // Connexion
+  public function login($login, $mdp) {
+
+    $rq = $this->_db->prepare(
+        'SELECT USR_ID as id,
+        USR_LOG as login,
+        USR_MAIL as mail,
+        USR_PWD as pwd,
+        USR_COLOR as color
+        FROM T_USER_USR
+        WHERE USR_LOG = :login
+        AND USR_PWD = :mdp'
+      );
+
+    $rq->bindvalue(':login', $login, PDO::PARAM_STR);
+    $rq->bindvalue(':mdp', $mdp, PDO::PARAM_STR);
+
+    $rq->execute();
+    $donnees = $rq->fetchAll();
+
+    if($donnees)
+      return new User($donnees);
+    
+    return false;
+  }
+
 }
 
 
