@@ -1,4 +1,7 @@
 <?php
+
+session_start(); // A laisser en premiere ligne
+
 include 'include/db.php';
 include 'class/VideoManager.class.php';
 // $id=$_GET['id'];
@@ -14,15 +17,15 @@ $new = $videoManager->update($newvideo);
 
 ?>
 
-<<html>
+<html>
 <head>
 	<title></title>
 </head>
 <body>
 
-<<p> Video mis à jour avec succés 
+<p> Video mis à jour avec succés 
 
-	<<a href="admin-video.php">Retourner à l'administration des vidéos</a>
+	<a href="admin-video.php">Retourner à l'administration des vidéos</a>
 </p>
 
 </body>

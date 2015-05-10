@@ -1,3 +1,7 @@
+<?php
+session_start(); // A laisser en premiere ligne
+?>
+
 <!DOCTYPE html>
 <html>
 <head>

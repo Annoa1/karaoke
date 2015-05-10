@@ -1,9 +1,9 @@
 <?php
-
+require_once 'class/User.class.php';
 session_start(); // A laisser en premiere ligne ! 
 
-include 'include/db.php';
-include 'class/UserManager.class.php';
+require 'include/db.php';
+require 'class/UserManager.class.php';
 
 $msg = false;
 

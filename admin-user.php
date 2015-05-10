@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 include 'include/db.php';
 include 'class/UserManager.class.php';
 

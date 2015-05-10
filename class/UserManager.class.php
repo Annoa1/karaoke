@@ -1,6 +1,6 @@
 <?php
 
-include 'User.class.php';
+require_once 'class/User.class.php';
 
 class UserManager {
 
@@ -134,7 +134,7 @@ class UserManager {
     $donnees = $rq->fetchAll();
 
     if($donnees)
-      return new User($donnees);
+      return new User($donnees[0]);
     
     return false;
   }
