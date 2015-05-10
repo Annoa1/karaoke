@@ -16,7 +16,7 @@ session_start(); // A laisser en premiere ligne
 </head>
 	<body>
 
-		<?php include 'header.php'; ?>
+		<?php include 'include/header.php'; ?>
 
 		<div class="mainContainer">
 
@@ -42,7 +42,7 @@ session_start(); // A laisser en premiere ligne
 
 		</div>
 
-		<?php include 'footer.php'; ?>
+		<?php include 'include/footer.php'; ?>
 
 	</body>
 </html>

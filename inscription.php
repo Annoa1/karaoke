@@ -7,7 +7,7 @@
     </head>
 
     <body>
-        <?php include 'header.php'; ?>
+        <?php include 'include/header.php'; ?>
 
         <div class="mainContainer">
             <div id="mainContainerContent">
@@ -23,7 +23,7 @@
             </div>
         </div>
 
-        <?php include 'footer.php'; ?>
+        <?php include 'include/footer.php'; ?>
         
     </body>
 </html>

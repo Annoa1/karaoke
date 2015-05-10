@@ -11,13 +11,13 @@ session_start(); // A laisser en premiere ligne
     </head>
 
     <body>
-        <?php include 'header.php'; ?>
+        <?php include 'include/header.php'; ?>
 
         <div class="mainContainer">
             <p>BLAHBLAHBLAH</p>
         </div>
 
-        <?php include 'footer.php'; ?>
+        <?php include 'include/footer.php'; ?>
         
     </body>
 </html>

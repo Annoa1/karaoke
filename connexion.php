@@ -37,7 +37,7 @@ if (isset($_POST['pseudo']) && isset($_POST['motDePasse'])) {
     </head>
 
     <body>
-        <?php include 'header.php'; ?>
+        <?php include 'include/header.php'; ?>
 
         <div class="mainContainer">
             <h3 id="connexion">Connexion</h3>
@@ -59,7 +59,7 @@ if (isset($_POST['pseudo']) && isset($_POST['motDePasse'])) {
         </div>
     </body>
 
-    <?php include 'footer.php'; ?>
+    <?php include 'include/footer.php'; ?>
     
 </html>			
 
