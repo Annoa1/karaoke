@@ -13,7 +13,19 @@ $_SESSION['page'] = 'users';
 
 $db = db_connexion();
 $userManager = new UserManager($db);
-$users = $userManager->getList();
+
+if (isset($_GET['id'])) {
+  $user = $userManager->get($_GET['id']);
+  if (!$user) {
+    go_home();
+  }
+  if ($user->isAdmin()) {
+    go_home();
+  }
+}
+else {
+  go_home();
+}
 
 ?>
 
@@ -28,25 +40,15 @@ $users = $userManager->getList();
   <body>
     <?php include('include/admin-header.php') ?>
     <div id="content">
-    <p>Liste des utilisateurs :</p>
-    <table>
-      <tr>
-        <th>login</th>
-        <th>mail</th>
-        <th>color</th>
-      </tr>
-      <?php
 
-        foreach ($users as $user) {
-          echo '<tr>';
-          echo '<td><a href="admin-moderation.php?id='.$user->id().'">'.$user->login().'</a></td>';
-          echo '<td>'.$user->mail().'</td>';
-          echo '<td>'.$user->color().'</td>';
-          echo '<td class="td_button"><button>Delete</button></td>';
-          echo '</tr>';
-        }
-      ?>
-    </table>
+    <form>
+      <label>Login</label><input type="text" value="<?php echo $user->login() ?>"><br/>
+      <label>Mode de passe</label><button>Reset</button><br/>
+      <label>Mail</label><input type="email" value="<?php echo $user->mail() ?>"><br/>
+      <label>Color</label><input type="text" value="<?php echo $user->color() ?>"><br/>
+      <input type="submit" value="Modifier">
+    </form>
+    
     </div>
     
     <?php include('include/admin-footer.php') ?>

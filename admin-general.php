@@ -45,7 +45,7 @@ $admin = $userManager->getAdmin();
     <form>
       <fieldset>
       <legend>Outils d'administration</legend>
-        <button><span class="icones">E</span></button>Envoyer un mail à tous les utilisateurs
+        <button class="icones">E</button>Envoyer un mail à tous les utilisateurs
       </fieldset>
     </form>
 

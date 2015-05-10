@@ -108,6 +108,10 @@ tr:hover {
   background: #D1EFFF;
 }
 
+td.td_button {
+  background-color: #fff;
+}
+
 form {
   margin-bottom: 20px;
 }
@@ -117,11 +121,8 @@ label {
   width: 250px;
 }
 
-.icones {
+button.icones {
   font-family: "Heydings", sans-serif;
-}
-
-button {
   margin-left: 10px;
   margin-right: 10px;
 }

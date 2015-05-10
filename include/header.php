@@ -15,16 +15,17 @@
                     <li><a href="deconnexion.php">Déconnexion</a></li>
                 <?php } else { ?>
                     <li><a href="connexion.php">Connexion</a></li>
+                    <li><a href="inscription.php">Inscription</a></li>
                 <?php } ?>
-
-                <li><a href="inscription.php">Inscription</a></li>
             </ul>
         </nav>
         <?php
             if (isset($_SESSION['user'])) {
-                echo "<p><a href='user.php?id=".$_SESSION['user']->id()."'>".$_SESSION['user']->login()."</a></p>";
                 if ($_SESSION['user']->isAdmin()) {
                     echo "<p><a href='admin-index.php'>Panneau d'administration</a></p>";
+                }
+                else {
+                    echo "<p><a href='profil.php?id=".$_SESSION['user']->id()."'>".$_SESSION['user']->login()."</a></p>";
                 }
             }
         ?>

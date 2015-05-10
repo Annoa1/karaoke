@@ -1,6 +1,6 @@
 <?php
 require_once 'class/User.class.php';
-session_start(); // A laisser en premiere ligne
+session_start();
 
 require 'include/db.php';
 require 'class/UserManager.class.php';
@@ -12,6 +12,9 @@ $userManager = new UserManager($db);
 if (isset($_GET['id'])) {
   $user = $userManager->get($_GET['id']);
   if (!$user) {
+    go_home();
+  }
+  if ($user->isAdmin()) {
     go_home();
   }
 }

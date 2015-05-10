@@ -19,16 +19,20 @@ class UserManager {
 
   // Ajoute un utilisateur à la BDD
   public function add(User $user) {
+
     $rq = $this->_db->prepare(
-        'INSERT INTO T_USER_USR (USR_LOGIN, USR_MAIL, USR_PWD, USR_COLOR)
-        VALUES (:login, :mail, :pwd, :color);'
+        'INSERT INTO T_USER_USR (USR_LOG, USR_MAIL, USR_PWD)
+        VALUES (:login, :mail, :pwd);'
       );
     $rq->bindvalue(':login', $user->login());
     $rq->bindvalue(':mail', $user->mail());
     $rq->bindvalue(':pwd', $user->pwd());
-    $rq->bindvalue(':color', $user->color());
 
     $rq->execute();
+
+    $count = $rq->rowCount();
+
+    return ($count>0);
   }
 
   // Supprime un utilisateur à la BDD
@@ -73,6 +77,7 @@ class UserManager {
         USR_PWD as pwd,
         USR_COLOR as color
         FROM T_USER_USR
+        WHERE USR_LOG != "admin"
         ORDER BY login'
       );
 
