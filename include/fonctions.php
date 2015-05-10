@@ -28,4 +28,10 @@ function check_admin() {
   }
 }
 
+
+function current_page($page) {
+  if ($_SESSION['page'] == $page) 
+    echo " id='current_page' ";
+}
+
 ?>

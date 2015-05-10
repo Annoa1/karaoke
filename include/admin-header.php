@@ -3,9 +3,9 @@
   <img src="img/octosing_logo.png">
   <h2><a href="index.php">Retour sur Oktosing</a></h2>
   <ul>
-    <li><a id="actif" href="admin-general.php">Général</a></li>
-    <li><a href="#">Gestion des vidéos</a></li>
-    <li><a href="admin-user.php">Gestion des utilisateurs</a></li>
-    <li><a href="#">Déconnexion</a></li>
+    <li <?php current_page("general") ?>><a href="admin-general.php">Général</a></li>
+    <li <?php current_page("videos") ?>><a href="admin-video.php">Gestion des vidéos</a></li>
+    <li <?php current_page("users") ?>><a href="admin-user.php">Gestion des utilisateurs</a></li>
+    <li><a href="deconnexion.php">Déconnexion</a></li>
   </ul>
 </header>

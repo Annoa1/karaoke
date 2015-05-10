@@ -1,9 +1,15 @@
 <?php
 
+require_once 'class/User.class.php';
 session_start();
 
-include 'include/db.php';
-include 'class/UserManager.class.php';
+require 'include/db.php';
+require 'class/UserManager.class.php';
+require_once 'include/fonctions.php';
+
+check_admin();
+
+$_SESSION['page'] = 'users';
 
 $db = db_connexion();
 $userManager = new UserManager($db);
@@ -17,11 +23,12 @@ $users = $userManager->getList();
     <meta charset="utf-8">
     <title>Panneau d'admin - utilisateurs</title>
     <link rel="stylesheet" href="css/admin.css">
+    <link rel="icon" type="./img/png" href="./img/favicon.png"/>
   </head>
   <body>
     <?php include('include/admin-header.php') ?>
     <div id="content">
-    Liste des utilisateurs :
+    <p>Liste des utilisateurs :</p>
     <table>
       <tr>
         <th>id</th>
@@ -46,6 +53,9 @@ $users = $userManager->getList();
       ?>
     </table>
     </div>
+    
+    <?php include('include/admin-footer.php') ?>
+
     
   </body>
 </html>
