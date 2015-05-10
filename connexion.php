@@ -4,6 +4,7 @@ session_start(); // A laisser en premiere ligne !
 
 require 'include/db.php';
 require 'class/UserManager.class.php';
+require_once 'include/fonctions.php';
 
 $msg = false;
 
@@ -15,12 +16,7 @@ if (isset($_POST['pseudo']) && isset($_POST['motDePasse'])) {
 
     if ($user) {
         $_SESSION['user'] = $user;
-        // Construit une URL absolue
-        $host  = $_SERVER['HTTP_HOST'];
-        $uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
-        $extra = 'index.php';
-        header("Location: http://$host$uri/$extra");
-        exit;
+        go_home();
     }
     else {
         $msg = "Identifiant et/ou mot-de-passe erroné(s)";

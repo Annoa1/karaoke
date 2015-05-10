@@ -43,17 +43,22 @@ class UserManager {
   public function get($id) {
     $id = (int) $id;
 
-    $rq = $this->_db->query(
+    $rq = $this->_db->prepare(
       'SELECT USR_ID as id,
       USR_LOG as login,
       USR_MAIL as mail,
       USR_PWD as pwd,
       USR_COLOR as color
       FROM T_USER_USR
-      WHERE USR_ID = '.$id
+      WHERE USR_ID = :id'
       );
+    $rq->bindvalue(':id', $id);
+    $rq->execute();
     $donnees = $rq->fetch(PDO::FETCH_ASSOC);
-    return new User($donnees);
+    if ($donnees) {
+      return new User($donnees);
+    }
+    return false;
   }
 
   // Retourne tous les utilisateurs
@@ -131,11 +136,12 @@ class UserManager {
     $rq->bindvalue(':mdp', $mdp, PDO::PARAM_STR);
 
     $rq->execute();
-    $donnees = $rq->fetchAll();
 
-    if($donnees)
-      return new User($donnees[0]);
-    
+    $donnees = $rq->fetch(PDO::FETCH_ASSOC);
+
+    if ($donnees) {
+      return new User($donnees);
+    }
     return false;
   }
 

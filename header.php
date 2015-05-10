@@ -22,7 +22,10 @@
         </nav>
         <?php
             if (isset($_SESSION['user'])) {
-                echo "<a href='user.php?id=".$_SESSION['user']->id()."'>".$_SESSION['user']->login()."</a>";
+                echo "<p><a href='user.php?id=".$_SESSION['user']->id()."'>".$_SESSION['user']->login()."</a></p>";
+                if ($_SESSION['user']->isAdmin()) {
+                    echo "<p><a href='admin-index.php'>Panneau d'administration</a></p>";
+                }
             }
         ?>
     </div>

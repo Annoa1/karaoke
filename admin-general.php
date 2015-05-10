@@ -14,8 +14,8 @@ $admin = $userManager->getAdmin();
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Panneau d'admin</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Panneau d'admin - Général</title>
+    <link rel="stylesheet" href="css/admin.css">
   </head>
   <body>
     <?php include('include/admin-header.php') ?>
