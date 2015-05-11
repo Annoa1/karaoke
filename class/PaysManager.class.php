@@ -21,14 +21,19 @@ class PaysManager {
   public function get($id) {
     $id = (int) $id;
 
-    $rq = $this->_db->query(
+    $rq = $this->_db->prepare(
       'SELECT PAY_ID as id,
       PAY_NOM as nom
       FROM TR_PAYS_PAY
-      WHERE PAY_ID = '.$id
+      WHERE PAY_ID = :id'.
       );
+    $rq->bindvalue(':id', $id);
+    $rq->execute();
     $donnees = $rq->fetch(PDO::FETCH_ASSOC);
-    return new Pays($donnees);
+    if ($donnees) {
+      return new Pays($donnees);
+    }
+    return false;
   }
 
   // Retourne tous les utilisateurs

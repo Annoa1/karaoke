@@ -15,11 +15,15 @@ class Artist {
   }
 
 // Valorisation des attributs
- public function setnom($nomArtiste) {
+ public function setNom($nomArtiste) {
     if (is_string($nomArtiste)) {
       
       $this->_nomArtiste = $nomArtiste;
     }
+  }
+
+  public function setId($idArtiste) {
+    $this->_id = $idArtiste;
   }
 
   //Constructeur artiste
