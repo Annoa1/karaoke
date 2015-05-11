@@ -188,3 +188,17 @@ footer p
 	text-align: center;
 }
 
+label {
+	display: inline-block;
+	width: 250px;
+}
+
+form {
+	margin: 20px 20px 0 20px;
+}
+
+legend {
+	padding: 5px;
+}
+
+
