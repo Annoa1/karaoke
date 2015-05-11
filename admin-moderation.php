@@ -22,6 +22,22 @@ if (isset($_GET['id'])) {
   if ($user->isAdmin()) {
     go_home();
   }
+
+  // Si modification
+  if (isset($_POST['login']) && isset($_POST['mail'])) {
+    $user->setLogin($_POST['login']);
+    $user->setMail($_POST['mail']);
+    $color = (isset($_POST['login'])) ? $_POST['color'] : "";
+    $user->setColor($color);
+    if (isset($_POST['pwd'])) {
+      $user->setPwd($_POST['pwd']);
+    }
+    if ($userManager->update($user)) {
+      $_SESSION['msg'] = "L'utilisateur <strong>".$user->login()."</strong> a bien été modifié.";
+      go_home("admin-user.php");
+    }
+  }
+
 }
 else {
   go_home();
@@ -41,18 +57,18 @@ else {
     <?php include('include/admin-header.php') ?>
     <div id="content">
 
-    <form>
-      <label>Login</label><input type="text" value="<?php echo $user->login() ?>"><br/>
-      <label>Mode de passe</label><button>Reset</button><br/>
-      <label>Mail</label><input type="email" value="<?php echo $user->mail() ?>"><br/>
-      <label>Color</label><input type="text" value="<?php echo $user->color() ?>"><br/>
-      <input type="submit" value="Modifier">
+    <form method="post" action="admin-moderation.php?id=<?php echo $user->id()?>">
+      <label for="login">Login</label><input id="login" name ="login" type="text" value="<?php echo $user->login() ?>"><br/>
+      <label>Mot de passe</label><button id="but_pwd">Reset</button><br/>
+      <label for="mail">Mail</label><input id="mail" name="mail" type="email" value="<?php echo $user->mail() ?>"><br/>
+      <label for="color">Color</label><input id="color" name="color" type="text" value="<?php echo $user->color() ?>"><br/>
+      <input id="but_submit" type="submit" value="Modifier">
     </form>
     
     </div>
     
     <?php include('include/admin-footer.php') ?>
-
-    
+  <script src="js/jquery.js"></script>
+  <script src="js/admin.js"></script>
   </body>
 </html>

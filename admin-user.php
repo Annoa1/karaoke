@@ -43,7 +43,17 @@ $users = $userManager->getList();
     <?php include('include/admin-header.php') ?>
     <div id="content">
 
-    <p><?php if ($delete) { echo $delete; } ?></p>
+    <p>
+      <?php 
+      if ($delete) { 
+        echo $delete; 
+      }
+      else if ($_SESSION['msg']) {
+        echo $_SESSION['msg'];
+        $_SESSION['msg'] = null;
+      }
+       ?>
+     </p>
 
     
     <table>
@@ -59,7 +69,7 @@ $users = $userManager->getList();
           echo '<td><a href="admin-moderation.php?id='.$user->id().'">'.$user->login().'</a></td>';
           echo '<td>'.$user->mail().'</td>';
           echo '<td>'.$user->color().'</td>';
-          echo '<td class="td_button"><a href="admin-user.php?action=delete&id='.$user->id().'"><button>Delete</button></a></td>';
+          echo '<td class="td_button"><a href="admin-user.php?action=delete&id='.$user->id().'"><button class="icones">X</button></a></td>';
           echo '</tr>';
         }
       ?>

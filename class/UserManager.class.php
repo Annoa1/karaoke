@@ -127,6 +127,10 @@ class UserManager {
     $rq->bindvalue(':color', $user->color());
 
     $rq->execute();
+
+    $count = $rq->rowCount();
+
+    return ($count>0);
   }
 
   // Connexion

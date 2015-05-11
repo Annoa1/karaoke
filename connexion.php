@@ -16,6 +16,7 @@ if (isset($_POST['pseudo']) && isset($_POST['motDePasse'])) {
 
     if ($user) {
         $_SESSION['user'] = $user;
+        $_SESSION['msg'] = null;
         go_home();
     }
     else {
