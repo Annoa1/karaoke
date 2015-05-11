@@ -7,7 +7,7 @@ include 'include/db.php';
 include 'class/VideoManager.class.php';
 $db = db_connexion();
 $videoManager = new VideoManager($db);
-$video = $videoManager->getList();
+$videos = $videoManager->getRand();
 
 ?>
 
@@ -39,11 +39,11 @@ $video = $videoManager->getList();
 						$video->id : la valeur de notre parametre (ici on )
 					 -->
 
-					<?php 
-                    	echo '<a href="play.php?id='.$video->_id.'"><p>Pays A</p><img src="./img/octopus_cute_green.png"></a>';
-                        echo '<a href="play.php?id='.$video->_id.'"><p>Pays B</p><img src="./img/octopus_cute_pink.png"></a>';
-                        echo '<a href="play.php?id='.$video->_id.'"><p>Pays C</p><img src="./img/octopus_cute_purple.png"></a>';
-                    ?>
+					<?php // $video->_id ne peux pas marcher : c'est un attribut privé. Tu dois utiliser le getter.
+             echo '<a href="play.php?id='.$videos[0]->id().'"><p>Pays A</p><img src="./img/octopus_cute_green.png"></a>';
+             echo '<a href="play.php?id='.$videos[1]->id().'"><p>Pays B</p><img src="./img/octopus_cute_pink.png"></a>';
+             echo '<a href="play.php?id='.$videos[2]->id().'"><p>Pays C</p><img src="./img/octopus_cute_purple.png"></a>';
+          ?>
 
 				</div>								
 			</div>
