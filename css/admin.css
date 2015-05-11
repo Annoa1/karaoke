@@ -1,0 +1,143 @@
+@font-face {
+  font-family: "Heydings";
+  src: url(../font/heydings_icons.ttf) format("truetype");
+}
+
+
+/*html {
+  position: absolute;
+  width: 100%;
+  margin:0;
+  padding:0;
+  margin-top: -20px;
+}*/
+
+body {
+  position: absolute;
+  width: 100%;
+  font:100% tahoma,arial,helvetica,sans-serif; 
+  color:#000; 
+  background-color: #C3E5F7;
+  margin:0;
+  padding:0;
+}
+
+#content {
+  padding: 20px;
+  height: 100%;
+  bottom: 0px;
+  background-color: #fff;
+}
+
+header {
+  background-color: #C3E5F7;
+}
+
+header a {
+  text-decoration:none;
+  color: black;
+}
+
+header h1, h2 {
+  margin: 20px 20px 0px 20px;
+}
+
+header h2 {
+  text-align: right;
+}
+
+header img {
+  float: right;
+  width: 100px;
+}
+
+header ul {
+  list-style:none;
+  border-bottom:#5dbef5 solid 5px;
+  background-color: #91D3F7;
+  width:100%; 
+  margin:0px;
+  padding:0;
+  text-align: center;
+}
+
+header li {
+  display:inline-block;
+  padding: 5px;
+
+}
+
+header li a {
+ color:#000000;
+ margin-right:20px;
+ margin-left: 20px;
+ cursor:pointer;
+}
+
+#current_page {
+  /*border-bottom: #219DE0 solid 5px;*/
+  background-color: #5dbef5;
+}
+
+
+table {
+  border-collapse: collapse;
+  min-width: 80%;
+  text-align: left;
+}
+
+th {
+  background: -moz-linear-gradient(top, #E5F6FF 0, #5dbef5 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #E5F6FF), color-stop(100%, #5dbef5));
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#E5F6FF', endColorstr='#5dbef5', GradientType=0);
+  border: 1px solid #5dbef5;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 3px 10px;
+}
+
+td {
+  padding: 3px 10px;
+}
+
+tr:nth-child(even) {
+  background: #E5F6FF;
+}
+
+tr:hover {
+  background: #D1EFFF;
+}
+
+td.td_button {
+  background-color: #fff;
+}
+
+form {
+  margin-bottom: 20px;
+}
+
+label {
+  display: inline-block;
+  width: 250px;
+}
+
+.icones {
+  font-family: "Heydings", sans-serif;
+}
+
+button.icones {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+footer 
+{
+  padding-top: 20px;
+  margin: 0 auto;
+  border-top: 1px solid #5DBEF5;
+}
+
+footer p 
+{
+  text-align: center;
+}

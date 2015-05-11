@@ -101,6 +101,10 @@ class User {
     }
   }
 
+  public function isAdmin() {
+    return ($this->_login == 'admin');
+  }
+
 }
 
 

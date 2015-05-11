@@ -1,3 +1,7 @@
+<?php
+session_start(); // A laisser en premiere ligne
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +13,7 @@
 </head>
 	<body>
 
-		<?php include 'header.php'; ?>
+		<?php include 'include/header.php'; ?>
 
 		<div class="mainContainer">
 			<div id="videoContainer">
@@ -24,7 +28,7 @@
 			</div>
 		</div>
 
-		<?php include 'footer.php'; ?>
+		<?php include 'include/footer.php'; ?>
 
 	</body>
 </html>

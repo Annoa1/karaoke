@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 
 include 'include/db.php';
 include 'class/VideoManager.class.php';
@@ -7,6 +8,14 @@ $videoManager = new VideoManager($db);
 $video = $videoManager->getList();
 
 ?><!DOCTYPE html>
+=======
+require_once 'class/User.class.php';
+session_start();
+
+?>
+
+<!DOCTYPE html>
+>>>>>>> origin/master
 <html>
 <head>
 	<title>Oktosing</title>
@@ -18,7 +27,7 @@ $video = $videoManager->getList();
 </head>
 	<body>
 
-		<?php include 'header.php'; ?>
+		<?php include 'include/header.php'; ?>
 
 		<div class="mainContainer">
 
@@ -44,7 +53,7 @@ $video = $videoManager->getList();
 
 		</div>
 
-		<?php include 'footer.php'; ?>
+		<?php include 'include/footer.php'; ?>
 
 	</body>
 </html>
