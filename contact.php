@@ -1,4 +1,5 @@
 <?php
+require_once 'class/User.class.php';
 session_start(); // A laisser en premiere ligne
 ?>
 
