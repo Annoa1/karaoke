@@ -130,6 +130,10 @@ class UserManager {
 
     $count = $rq->rowCount();
 
+    if ($count>0 && $user->isConnected()) {
+      $_SESSION['user'] = $user;
+    }
+
     return ($count>0);
   }
 

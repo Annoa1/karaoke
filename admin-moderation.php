@@ -59,7 +59,7 @@ else {
 
     <form method="post" action="admin-moderation.php?id=<?php echo $user->id()?>">
       <label for="login">Login</label><input id="login" name ="login" type="text" value="<?php echo $user->login() ?>"><br/>
-      <label>Mot de passe</label><button id="but_pwd">Reset</button><br/>
+      <label>Mot de passe</label><a href="#" id="but_pwd">Reset</a><br/>
       <label for="mail">Mail</label><input id="mail" name="mail" type="email" value="<?php echo $user->mail() ?>"><br/>
       <label for="color">Color</label><input id="color" name="color" type="text" value="<?php echo $user->color() ?>"><br/>
       <input id="but_submit" type="submit" value="Modifier">

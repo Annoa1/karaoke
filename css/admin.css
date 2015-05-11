@@ -141,3 +141,7 @@ footer p
 {
   text-align: center;
 }
+
+input[type="submit"] {
+  margin-left: 249px;
+}

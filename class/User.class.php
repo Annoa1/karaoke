@@ -94,15 +94,25 @@ class User {
       return;
     }
     if (strlen($color) == 6) {
-      $regex = "#[a-fA-F0-9]*#";
+      $regex = "/[a-fA-F0-9]*/";
       if (preg_match($regex, $color)) {
         $this->_color = $color;
+      }
+    }
+    else if (strlen($color) == 7) {
+      $regex = "/#[a-fA-F0-9]*/";
+      if (preg_match($regex, $color)) {
+        $this->_color = substr($color,1);
       }
     }
   }
 
   public function isAdmin() {
     return ($this->_login == 'admin');
+  }
+
+  public function isConnected() {
+    return ($this->id() == $_SESSION['user']->id());
   }
 
 }

@@ -49,10 +49,10 @@ if (isset($_POST['pseudo']) && isset($_POST['motDePasse'])) {
                     }
                 ?>
                 <p class="formConnexion">
-                    <label>Pseudo</label> : <input type="text" name="pseudo" />
+                    <label>Pseudo</label><input type="text" name="pseudo" />
                 </p>
                 <p class="formConnexion">
-                    <label>Mot De Passe</label> : <input type="password" name="motDePasse" />
+                    <label>Mot De Passe</label><input type="password" name="motDePasse" />
                 </p>
 
                 <input type="submit" name="connexion" value="LOGIN">
