@@ -1,5 +1,10 @@
 <?php
-<<<<<<< HEAD
+
+
+<?php
+
+require_once 'class/User.class.php';
+session_start();
 
 include 'include/db.php';
 include 'class/VideoManager.class.php';
@@ -7,15 +12,10 @@ $db = db_connexion();
 $videoManager = new VideoManager($db);
 $video = $videoManager->getList();
 
-?><!DOCTYPE html>
-=======
-require_once 'class/User.class.php';
-session_start();
-
 ?>
 
 <!DOCTYPE html>
->>>>>>> origin/master
+
 <html>
 <head>
 	<title>Oktosing</title>
