@@ -1,4 +1,12 @@
-<!DOCTYPE html>
+<?php
+
+include 'include/db.php';
+include 'class/VideoManager.class.php';
+$db = db_connexion();
+$videoManager = new VideoManager($db);
+$video = $videoManager->getList();
+
+?><!DOCTYPE html>
 <html>
 <head>
 	<title>Oktosing</title>

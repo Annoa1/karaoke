@@ -41,7 +41,7 @@ $videos = $videoManager->getList();
       <tr>
         <th>Titre</th>
         
-        <th>Tnnee</th>
+        <th>Annee</th>
       </tr>
       <?php
         

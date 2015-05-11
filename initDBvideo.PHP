@@ -8,6 +8,9 @@ $year=$_GET['annee'];
 $db = db_connexion();
 $videoManager = new VideoManager($db);
 $newvideo= new Video();
+$newvideo.settitle($titre);
+$newvideo.setyear($year);
+
 $new = $videoManager->update($newvideo);
 
 
