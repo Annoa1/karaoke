@@ -1,8 +1,5 @@
 <?php
 
-
-<?php
-
 require_once 'class/User.class.php';
 session_start();
 
