@@ -37,10 +37,16 @@ class UserManager {
 
   // Supprime un utilisateur à la BDD
   public function delete(User $user) {
-    $this->_db->exec(
+    $rq = $this->_db->prepare(
         'DELETE FROM T_USER_USR
-        WHERE id='.$user->id()
+        WHERE USR_ID = :id'
       );
+    $rq->bindvalue(':id', $user->id());
+    $rq->execute();
+
+    $count = $rq->rowCount();
+
+    return ($count>0);
   }
 
   // Retourne un utilisateur

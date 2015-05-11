@@ -121,8 +121,11 @@ label {
   width: 250px;
 }
 
-button.icones {
+.icones {
   font-family: "Heydings", sans-serif;
+}
+
+button.icones {
   margin-left: 10px;
   margin-right: 10px;
 }

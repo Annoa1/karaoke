@@ -13,6 +13,20 @@ $_SESSION['page'] = 'users';
 
 $db = db_connexion();
 $userManager = new UserManager($db);
+
+$delete = false;
+
+if (isset($_GET['action']) && isset($_GET['id'])) {
+  if ($_GET['action'] == "delete") {
+    $id = $_GET['id'];
+    $user = $userManager->get($id);
+    //var_dump($user);
+    if ($userManager->delete($user)) {
+      $delete = "L'utilisateur <strong>".$user->login()."</strong> a bien été supprimé.";
+    }
+  }
+}
+
 $users = $userManager->getList();
 
 ?>
@@ -28,7 +42,10 @@ $users = $userManager->getList();
   <body>
     <?php include('include/admin-header.php') ?>
     <div id="content">
-    <p>Liste des utilisateurs :</p>
+
+    <p><?php if ($delete) { echo $delete; } ?></p>
+
+    
     <table>
       <tr>
         <th>login</th>
@@ -42,7 +59,7 @@ $users = $userManager->getList();
           echo '<td><a href="admin-moderation.php?id='.$user->id().'">'.$user->login().'</a></td>';
           echo '<td>'.$user->mail().'</td>';
           echo '<td>'.$user->color().'</td>';
-          echo '<td class="td_button"><button>Delete</button></td>';
+          echo '<td class="td_button"><a href="admin-user.php?action=delete&id='.$user->id().'"><button>Delete</button></a></td>';
           echo '</tr>';
         }
       ?>
