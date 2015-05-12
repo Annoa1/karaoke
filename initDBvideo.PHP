@@ -18,6 +18,7 @@ if(!isset($_POST['titre']) || !isset($_POST['annee']))
 
 $titre=$_POST['titre'];
 $year=$_POST['annee'];
+// $sbt=$_Files['video'];
 
 // connexion BDD
 $db = db_connexion();
@@ -28,6 +29,7 @@ $videotoadd= new Video();
 // var_dump($videotoadd);
 $videotoadd->setTitle($titre);
 $videotoadd->setYear($year);
+// $videotoadd->setSbt($sbt);
 var_dump($videotoadd);
 
 $new = $newvideo->add($videotoadd);
@@ -48,7 +50,7 @@ $new = $newvideo->add($videotoadd);
 		}
 	?>
 
-	<a href="admin-video.php">Retourner à l'administration des vidéos</a>
+	<a href="admin-video.php">Retourner gestion video</a>
 </p>
 
 </body>
