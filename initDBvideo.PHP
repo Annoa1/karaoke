@@ -8,16 +8,15 @@ include 'include/fonctions.php';
 
 // verification de l'admin
 check_admin();
+
 // vérification valorisation$_POST
+if(!isset($_POST['titre']) || !isset($_POST['annee'])) {
+	go_home('addVideo.php');
+}
 
-if(!isset($_POST['titre']) || !isset($_POST['annee']))      
-	{
-		go_home('addVideo.php');
-		}
 // recuperation du titre et de l'année
-
-$titre=$_POST['titre'];
-$year=$_POST['annee'];
+$titre = $_POST['titre'];
+$year = $_POST['annee'];
 
 // connexion BDD
 $db = db_connexion();
@@ -25,31 +24,14 @@ $db = db_connexion();
 $newvideo = new VideoManager($db);
 
 $videotoadd= new Video();
-// var_dump($videotoadd);
+
 $videotoadd->setTitle($titre);
 $videotoadd->setYear($year);
-var_dump($videotoadd);
 
-$new = $newvideo->add($videotoadd);
-
+if ($newvideo->add($videotoadd)) {
+	go_home('admin-video.php');
+} else {
+	go_home('admin-video.php');
+}
 
 ?>
-
-<html>
-<head>
-	<title></title>
-</head>
-<body>
-
-<p> 
-	<?php 
-		if ($new) {
-			echo "Video mis à jour avec succés ";
-		}
-	?>
-
-	<a href="admin-video.php">Retourner à l'administration des vidéos</a>
-</p>
-
-</body>
-</html>
