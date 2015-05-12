@@ -1,6 +1,16 @@
 <?php
 require_once 'class/User.class.php';
 session_start();
+include 'include/fonctions.php';
+$id=$_GET['id'];
+include 'include/db.php';
+include 'class/VideoManager.class.php';
+$db = db_connexion();
+$myvideo = new VideoManager($db);
+$myvideo= $myvideo->get($id);
+
+$chemin=$myvideo->path();
+
 ?>
 
 <!DOCTYPE html>
@@ -20,9 +30,10 @@ session_start();
 			<div id="videoContainer">
 				
 				<video controls >
-					<source src="./video/CanabasseNaGnouDem.mp4" type="video/mp4"/>
-					<track kind="subtitles" src="./video/CanabasseNaGnouDem.vtt" srclang="en" default></track>
-					<source src="./video/ponponpon.mp4" type="video/mp4"/>
+					<?php 
+					echo '<source src='.$chemin.' />';
+					?>
+			
 
 				</video>
 		

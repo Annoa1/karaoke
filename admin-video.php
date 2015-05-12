@@ -1,27 +1,26 @@
 <?php
-// zone BDD
 
-include 'include/db.php';
-
-//Zone administration
-    //Administration User
+// Zone administration
+// Administration User
 require_once 'class/User.class.php';
 session_start();
 
-
+// zone BDD
+include 'include/db.php';
+include 'class/VideoManager.class.php';
 require_once 'include/fonctions.php';
 
 check_admin();
 
 $_SESSION['page'] = 'videos';
-    //Administration Vidéo
 
-include 'class/VideoManager.class.php';
+// Administration Vidéo
 $db = db_connexion();
 $videoManager = new VideoManager($db);
 $videos = $videoManager->getList();
 
 ?>
+
 <!doctype html>
 <html lang="fr">
     <head>
@@ -33,39 +32,37 @@ $videos = $videoManager->getList();
     </head>
 
     <body>
-     <!--  -->
-          <?php include('include/admin-header.php') ?>
+    
+    <?php include('include/admin-header.php') ?>
           
-           
-        <div id="content">
-            <h3 id="connexion">Liste des videos :</h3>
-          <FORM  method="get"> 
-    <table>
-      <tr>
-        <th>Titre</th>
+    <div id="content">
+    
+        <h3 id="connexion">Liste des videos :</h3>
+      
+        <table>
+            <tr>
+                <th>Titre</th>
+                <th>Annee</th>
+            </tr>
+            <?php
         
-        <th>Annee</th>
-      </tr>
-      <?php
-        
-        foreach ($videos as $video) {
-          echo '<tr>';
-          echo '<td>'.$video->title().'</td>';
-          echo '<td>'.$video->year().'</td>';
-          
-          echo '<td><button><a href=delete.php?id='.$video->id().'>Supprimer</a></button></td>';
-          echo '<td><button><a href=modif.php?id='.$video->id().'>Modifier</a></button></td>';
-          echo '</tr> ';
+            foreach ($videos as $video) {
+              echo '<tr>';
+              echo '<td>'.$video->title().'</td>';
+              echo '<td>'.$video->year().'</td>';
+              echo '<td><a href=delete.php?id='.$video->id().'><button>Supprimer</button></a></td>';
+              echo '<td><a href=modif.php?id='.$video->id().'><button>Modifier</button></a></td>';
+              echo '</tr> ';
+            }
 
-             }
-echo '</table> <br><button><a href="addVideo.php">Ajouter une nouvelle video</a></button>';
-      ?>
-   </FORM> 
-        </div>
-         <?php include('include/admin-footer.php') ?>
+            ?>
+        </table>
+
+        <a href="addVideo.php"><button>Ajouter une nouvelle video</button></a>
+      
+    </div>
+    <?php include('include/admin-footer.php') ?>
     </body>
-
-     
      
 </html>     
 
