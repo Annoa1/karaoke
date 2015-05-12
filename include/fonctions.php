@@ -28,7 +28,11 @@ function check_admin() {
   }
 }
 
-
+/**
+ * Cette procédure permet l'affichage du menu onglet de l'a
+ * @param  [type] $page [description]
+ * @return [type]       [description]
+ */
 function current_page($page) {
   if ($_SESSION['page'] == $page) 
     echo " id='current_page' ";
