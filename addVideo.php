@@ -1,19 +1,24 @@
 <?php
 
 //Zone administration
-    //Administration User
-require_once 'class/User.class.php';
+//Administration User
+
+require 'class/User.class.php';
 session_start();
 
 // zone BDD
 
-include 'include/db.php';
-// 
+require 'include/db.php';
 require_once 'include/fonctions.php';
+require 'class/PaysManager.class.php';
 
 check_admin();
 
 $_SESSION['page'] = 'videos';
+
+$db = db_connexion();
+$paysManager = new PaysManager($db);
+$listPays = $paysManager->getList();
 
 
 ?>
@@ -24,40 +29,44 @@ $_SESSION['page'] = 'videos';
         <meta charset="utf-8">
         <title>Gestion des vidéos</title>
         <link rel="stylesheet" href="./css/admin.css">
+        <link rel="stylesheet" href="js/jquery-ui.custom/jquery-ui.css">
         <link rel="icon" type="./img/png" href="./img/favicon.png"/>
-
     </head>
 
     <body>
-     <!--  -->
-          <?php include('include/admin-header.php') ?>
-          
-           
-        <div id="content">
-            <h3 id="connexion">	Information sur la nouvelle vidéo :</h3>
-            
- <form method="post" action = "initDBvideo.php">
-          	<label>Titre</label>
-         		<input  name = "titre"type="text" >
-         			<BR>
-         				<BR>
-          	<label>Année</label>
-          		<input name = "annee" type="text" >
-          			<BR>
-          				<BR>
-     		<label for="affiche">Vidéo</label>
-				<input id="affiche" name="video" type="file" />
-       				<BR>
-       					<BR>
-         	<button type="submit" >Enregistrer </button>
-</form>
 
+    <?php include('include/admin-header.php') ?>
 
-   
-   
+    <div id="content">
+
+        <h3 id="connexion">	Créer une nouvelle vidéo :</h3>
+
+        <div id="pays-string"><?php 
+        $s = "";
+        foreach ($listPays as $pays) {
+            $s .= $pays->nom().';';
+        } 
+        echo substr($s, 0, strlen($s)-1);
+        ?>
         </div>
-        <?php include('include/admin-footer.php') ?>
+            
+        <form method="post" action="initDBvideo.php" enctype="multipart/form-data">
+          	<label for="titre">Titre</label><input id="titre" name="titre" type="text" ><BR>
+          	<label for="annee">Année</label><input id="annee" name="annee" type="text" ><BR>
+            <label for="pays">Pays</label><input id="pays" name="pays" type="text"><BR>
+            <label for="artist">Artist</label><input id="artist" name="artist" type="text"><BR>
+            <label for="affiche">Vidéo</label><input id="affiche" name="video" type="file"><BR>
+            <label for="sbt">Sous-titres</label><a href="#">Importer des sous-titres</a><BR>
+            <BR>
+            <input type="submit" value="Enregistrer">
+        </form>
+
+    </div>
+    <?php include('include/admin-footer.php') ?>
     </body>
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery-ui.custom/jquery-ui.js"></script>
+    <script src="js/admin.js"></script>
 
 </html>     
 

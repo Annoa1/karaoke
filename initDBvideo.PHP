@@ -29,8 +29,10 @@ $videotoadd->setTitle($titre);
 $videotoadd->setYear($year);
 
 if ($newvideo->add($videotoadd)) {
+	$_SESSION['msg'] = "Vidéo ".$videotoadd->title()." bien ajoutée.";
 	go_home('admin-video.php');
 } else {
+	$_SESSION['msg'] = "La vidéo n'a pas pu être ajoutée.";
 	go_home('admin-video.php');
 }
 

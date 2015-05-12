@@ -1,6 +1,6 @@
 <?php
 
-include 'Artist.class.php';
+require_once 'Artist.class.php';
 
 class ArtistManager {
 
@@ -17,19 +17,13 @@ class ArtistManager {
     $this->_db = $db;
   }
 
-}
-
-// Supprime un artiste dans la BDD
+  // Supprime un artiste dans la BDD
   public function delete(Artist $artist) {
-    // $this->_db->exec(
-    //     'DELETE FROM T_ARTIST_ART
-    //     WHERE ='.$artist->nom()
-    //      );
     $this->_db->prepare(
         'DELETE FROM T_ARTIST_ART
         WHERE ART_ID = :id'
          );
-    $rq->bindvalue(':id', $user->id());
+    $rq->bindvalue(':id', $artist->id());
     $rq->execute();
 
     $count = $rq->rowCount();
@@ -41,9 +35,14 @@ class ArtistManager {
   public function get($id) {
     
     $rq = $this->_db->prepare(
-      'SELECT ART_NOM as nom,
-      FROM T_ARTIST_ART 
-      WHERE ART_ID = :id'
+      'SELECT ART_ID as "id", 
+              ART_NOM as "nom", 
+              COUNT(VID_ID) as "nbVideos"
+        FROM T_ARTIST_ART
+          NATURAL LEFT JOIN TJ_REALISE_REA
+          NATURAL LEFT JOIN T_VIDEO_VID
+        WHERE ART_ID = :id
+        GROUP BY ART_ID'
       );
     $rq->bindvalue(':id', $id);
     $rq->execute();
@@ -54,14 +53,36 @@ class ArtistManager {
     return false;
   }
 
+  public function getList() {
+    $artists = [];
+
+    $rq = $this->_db->query(
+        'SELECT ART_ID as "id", 
+              ART_NOM as "nom", 
+              COUNT(VID_ID) as "nbVideos"
+        FROM T_ARTIST_ART
+          NATURAL LEFT JOIN TJ_REALISE_REA
+          NATURAL LEFT JOIN T_VIDEO_VID
+        GROUP BY ART_ID
+        ORDER BY ART_NOM'
+      );
+    while ($donnees = $rq->fetch(PDO::FETCH_ASSOC)) {
+      $artists[] = new Artist($donnees);
+    }
+
+    return $artists;
+  }
+
 
   // Modifie un artiste dans la BDD
   public function update(Artist $artist) {
     $rq = $this->_db->prepare(
         'UPDATE T_ARTIST_ART
-        SET ART_NOM = :nom,
+        SET ART_NOM = :nom
         WHERE ART_ID = :id'
       );
+
+    //var_dump($rq);
 
     $rq->bindvalue(':id', $artist->id());
     $rq->bindvalue(':nom', $artist->nom());

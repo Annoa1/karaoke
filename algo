@@ -1,0 +1,35 @@
+//index.php
+
+kogmo -> play.php
+
+// play.php
+<?php 
+user
+session
+videoM
+?>
+
+Si (isset($_GET['id'])) {
+ if (!isset($_SESSION['karaoke'])) {
+ if = vrai
+  go_home();
+ }
+ tester si tu as bien une vidéo {
+  afficher video
+  $_SESSION['kao'] = faux;
+ }
+}
+sinon {
+// obtenir les videos
+$videoManager->getRandom(); array[0] -> objets videos
+
+// version get
+poulpe = un lien : play.php?id=6
+$videos->id()
+$videos->path()
+
+$_SESSION['kakaoke'] = true;
+}
+
+
+//session

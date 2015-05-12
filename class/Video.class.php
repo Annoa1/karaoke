@@ -5,34 +5,21 @@ class Video {
   private $_id;
   private $_title;
   private $_year;
-  private $_sbt = false; // faux si intégré à la video, vrai si fichier existe
-
-  
-  
-// J'aurais appelé les getters id(), title() et year() car
-// - plus court
-// - harmonisé avec le reste du site
-// - deplus tu appelles des $video->title() dans VideoManager
+  private $_sbt = false; 
 
 // Récuperation des attributs
-  // public function getId()
-  public function id()
-  {
+  public function id() {
     return $this->_id;
   }
 
-  // public function getTitle() 
-  public function title() 
-  {
+  public function title() {
     return $this->_title;
   }
 
-  // public function getYear() {
   public function year() {
     return $this->_year;
   }
 
-  // public function hasSbt() {
   public function sbt() {
     return $this->_sbt;
   }
@@ -48,7 +35,6 @@ class Video {
   }
 
   // Retourne le chemin du sous-titre vtt
-  // Si prog=vrai, alors on renvoit le progressif
   public function srtPath($prog = false) {
     if ($prog)
       return "sbt/srt_prog/".$this->getId().".srt";
@@ -56,12 +42,7 @@ class Video {
   }
 
   // Valorisation des attributs
-
-  // public function setid($id) {
   public function setId($id) {
-    // if (is_string($id)) {
-    //   $this->_id = $id;
-    // }
     $this->_id = (int)$id;
   }
 
@@ -74,12 +55,10 @@ class Video {
 
    // public function setyear($year) {
    public function setYear($year) {
-         $year= (int) $year;
+      $year= (int) $year;
       if ($year>1000 && $year<3000) {
          $this->_year =$year;
       }
-
-      
  	 	}
 
   public function setSbt($sbt) {
@@ -87,6 +66,7 @@ class Video {
       $this->_sbt = $sbt;
     }
   }
+  
 	//Constructeur video
 	  public function __construct($donnees = []) {
 

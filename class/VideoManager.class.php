@@ -37,13 +37,7 @@ public function add(Video $video) {
   }
 
   // Supprime une video de la BDD
-  // public function delete($id) {
   public function delete(Video $video) {
-        // $this->_db->exec(
-        // 'DELETE FROM T_VIDEO_VID
-        // WHERE VID_ID='.$id
-        //  );
-    // les requêtes préparées évitent les erreurs (ex : guillemets)
     $rq=$this->_db->prepare(
       'DELETE FROM T_VIDEO_VID
       WHERE VID_ID = :id'
@@ -60,15 +54,6 @@ public function add(Video $video) {
 
   // Retourne une video
   public function get($id) {
-    
-    // $rq = $this->_db->query(
-    //   'SELECT VID_ID as "id",
-    //           VID_TITLE as "title",
-    //           VID_YEAR as "year"
-    //       FROM T_VIDEO_VID 
-    //   WHERE VID_ID = '.$id
-    //   );
-    
     $rq = $this->_db->query(
       'SELECT VID_ID as "id",
               VID_TITLE as "title",
@@ -116,8 +101,6 @@ public function add(Video $video) {
         FROM T_VIDEO_VID 
         order by rand() LIMIT 0,3 '
       );
-    // ça ne respecte pas les pays aléatoires. (pays A, pays B, pays C) -> Pour la v2 ?
-    // De plus ça devrait sélectionner 3 vidéos différentes.
     while ($donnees = $rq->fetch(PDO::FETCH_ASSOC)) {
       $videos[] = new Video($donnees);
     }

@@ -82,7 +82,7 @@ header li a {
 
 table {
   border-collapse: collapse;
-  min-width: 80%;
+  min-width: 60%;
   text-align: left;
 }
 
@@ -110,6 +110,7 @@ tr:hover {
 
 td.td_button {
   background-color: #fff;
+  width: 20px;
 }
 
 form {
@@ -144,4 +145,8 @@ footer p
 
 input[type="submit"] {
   margin-left: 249px;
+}
+
+#pays-string {
+  display: none;
 }

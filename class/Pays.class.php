@@ -30,7 +30,15 @@ class Pays {
     return $this->_nom;
   }
 
-  // Pas de setteur, car table de référence non-modifiable
+  public function setId($id) {
+    $this->_id = $id;
+  }
+
+  public function setNom($nom) {
+    $this->_nom = $nom;
+  }
+
+  
 
 }
 

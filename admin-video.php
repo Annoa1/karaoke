@@ -38,7 +38,11 @@ $videos = $videoManager->getList();
     <div id="content">
     
         <h3 id="connexion">Liste des videos :</h3>
-      
+        <?php if ($_SESSION['msg']) {
+            echo "<p>".$_SESSION['msg']."</p>";
+            $_SESSION['msg'] = null;
+        }
+       ?>
         <table>
             <tr>
                 <th>Titre</th>

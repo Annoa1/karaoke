@@ -25,10 +25,12 @@ class PaysManager {
       'SELECT PAY_ID as id,
       PAY_NOM as nom
       FROM TR_PAYS_PAY
-      WHERE PAY_ID = :id'.
+      WHERE PAY_ID = :id'
       );
+
     $rq->bindvalue(':id', $id);
     $rq->execute();
+
     $donnees = $rq->fetch(PDO::FETCH_ASSOC);
     if ($donnees) {
       return new Pays($donnees);
