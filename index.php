@@ -29,7 +29,7 @@ $videos = $videoManager->getRand();
 		<div class="mainContainer">
 
 			<div id="play">
-				<img class="start" src="./img/kogmaw.png">
+				<p><img class="start" src="./img/kogmaw.png"></p>
 				<div id="choice">
 					<!-- 
 						<a href=modif.php?id='.$video->id().'>Modifier</a></button></td>
@@ -39,12 +39,21 @@ $videos = $videoManager->getRand();
 						$video->id : la valeur de notre parametre (ici on )
 					 -->
 
-					<?php // $video->_id ne peux pas marcher : c'est un attribut privé. Tu dois utiliser le getter.
-			            echo '<a href="play.php?id='.$videos[0]->id().'"><p>Pays A</p><img src="./img/octopus_cute_green.png"></a>';
-			            echo '<a href="play.php?id='.$videos[1]->id().'"><p>Pays B</p><img src="./img/octopus_cute_pink.png"></a>';
-			            echo '<a href="play.php?id='.$videos[2]->id().'"><p>Pays C</p><img src="./img/octopus_cute_purple.png"></a>';
-			        ?>
+		        	<div>
+		        		<a class="title" href="play.php?id=<?php echo $videos[0]->id() ?>">Pays A</a>
+		        		<a href="play.php?id=<?php echo $videos[0]->id() ?>"><img src="./img/octopus_cute_green.png"></a>
+		        	</div>    		      
 
+		        	<div>
+		        		<a class="title" href="play.php?id=<?php echo $videos[1]->id() ?>">Pays B</a>
+		        		<a href="play.php?id=<?php echo $videos[1]->id() ?>"><img src="./img/octopus_cute_pink.png"></a>
+		        	</div>   		
+		           
+		        	<div>
+		        		<a class="title" href="play.php?id=<?php echo $videos[2]->id() ?>">Pays C</a>
+		        		<a href="play.php?id=<?php echo $videos[2]->id() ?>"><img src="./img/octopus_cute_purple.png"></a>
+		        	</div> 
+		        				        
 				</div>								
 			</div>
 

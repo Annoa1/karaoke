@@ -169,6 +169,7 @@ header
 #choice
 {
 	margin: 0 auto;
+	text-align: center;
 	text-align: bottom;
 	display:none;
 }
@@ -176,7 +177,19 @@ header
 #choice img
 {
 	width:200px;
+}
+
+#choice div
+{
 	display:inline-block;
+	text-align: center;
+}
+
+#play .title
+{
+	display: block;
+	position:relative;
+	bottom:0;
 }
 
 .content 
