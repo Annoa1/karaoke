@@ -87,7 +87,11 @@ header
 	text-align: center;
 	border-radius: 50px;
 	border: 1px solid #6ab9da;
-
+	/* 
+		webkit pour chrome
+		moz pour mozilla
+		etc ...
+	*/
 	background-image: -webkit-gradient(linear,right top,left bottom,color-stop(0, #FFFFFF),color-stop(1, #6AB8DA));
 	background-image: -o-linear-gradient(left bottom, #FFFFFF 0%, #6AB8DA 100%);
 	background-image: -moz-linear-gradient(left bottom, #FFFFFF 0%, #6AB8DA 100%);
@@ -113,17 +117,13 @@ header
 	text-align: center;
 	margin:0 auto;
 	top: 50px;
-
-	position: relative;
-
 }
 
 #play img
 {
 	/*width: 40%;*/
 	width: 450px;
-    margin-left: auto;
-    margin-right: auto;
+	margin : 50px auto;
     vertical-align: text-bottom;
 }
 
@@ -134,7 +134,7 @@ header
 
 #choice
 {
-	margin: 50px auto;
+	margin: 0 auto;
 	text-align: bottom;
 	display:none;
 }
