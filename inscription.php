@@ -46,6 +46,7 @@ if (isset($_POST['pseudo']) && isset($_POST['email']) && isset($_POST['motDePass
         <meta charset="utf-8">
         <title>Inscription</title>
         <link rel="stylesheet" href="./css/style.css">
+        <link rel="icon" type="./img/png" href="./img/favicon.png"/>
     </head>
 
     <body>
@@ -72,12 +73,15 @@ if (isset($_POST['pseudo']) && isset($_POST['email']) && isset($_POST['motDePass
                     }
                 ?>
                 <form id="menuInscription" method="post" action="inscription.php">
-                    <p><label for="pseudo">Pseudo</label><input type="text" name="pseudo" id="pseudo"/></p>
-                    <p><label for="email">E-mail</label><input type="text" name="email" id="email"/></p>
-                    <p><label for="motDePasse1">Mot De Passe</label><input type="password" name="motDePasse1" id="motDePasse1"/></p>
-                    <p><label for="motDePasse1">Mot De Passe</label><input type="password" name="motDePasse2" id="motDePasse1"/></p>
-                    <input type="submit" value="S'INSCRIRE"> 
+                    <p><label for="pseudo">Pseudo*</label><input type="text" name="pseudo" id="pseudo"/></p>
+                    <p><label for="email">E-mail*</label><input type="text" name="email" id="email"/></p>
+                    <p><label for="motDePasse1">Mot De Passe*</label><input type="password" name="motDePasse1" id="motDePasse1"/></p>
+                    <p><label for="motDePasse1">Mot De Passe*</label><input type="password" name="motDePasse2" id="motDePasse1"/></p>
+                    <input type="submit" value="S'INSCRIRE">
+                    <br><br><br>
+                    <p><font color="green"><i>*Champs obligatoires</i></font></p>
                 </form>
+                
                 <?php
                 }
                 ?>   

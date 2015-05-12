@@ -1,3 +1,15 @@
+@font-face 
+{
+  font-family: "bubblefont1";
+  src: url(../font/bubblebuttacad.ttf) format("truetype");
+}
+
+@font-face 
+{
+  font-family: "bubblefont2";
+  src: url(../font/PWBubbles.ttf) format("truetype");
+}
+
 *
 {
 	margin: 0;
@@ -36,9 +48,11 @@ header
 
 .topHeader h1 
 {
-	font-size: 25px;
+	/*font-size: 25px;*/
+	font-size: 35px;
 	font-weight: 300;
-	font-family: fantasy;
+	/*font-family: fantasy;*/
+	font-family: "bubblefont1";
 	position: absolute;
 	/* margin: top right bottom left; */
 	margin: 45px 0 0 20px;
@@ -48,8 +62,10 @@ header
 .topHeader h4
 {
 	/*font-size: 25px;*/
+	font-size: 25px;
 	font-weight: 300;
-	font-family: fantasy;
+	/*font-family: fantasy;*/
+	font-family: "bubblefont2";
 	position: absolute;
 	/* margin: top right bottom left; */
 	margin: 80px 0 0 20px;
@@ -166,6 +182,7 @@ header
 	margin-top: 30px;
 	/*background-color: blue;*/
 }
+
 
 #mainContainerContent
 {

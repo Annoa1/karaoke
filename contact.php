@@ -9,6 +9,7 @@ session_start(); // A laisser en premiere ligne
         <meta charset="utf-8">
         <title>Inscription</title>
         <link rel="stylesheet" href="./css/style.css">
+        <link rel="icon" type="./img/png" href="./img/favicon.png"/>
     </head>
 
     <body>
