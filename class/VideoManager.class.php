@@ -20,13 +20,14 @@ class VideoManager {
 
 // Ajoute d'une vidéo à la BDD
 public function add(Video $video) {
-    $rq = $this->_db->query(
+
+    $rq = $this->_db->prepare(
         'INSERT INTO T_VIDEO_VID (VID_TITLE, VID_YEAR, VID_SBT)
         VALUES (:title, :year, :sbt);'
       );
     $rq->bindvalue(':title', $video->title());
-    $rq->bindvalue(':year', $title->year());
-    $rq->bindvalue(':sbt', $title->sbt());
+    $rq->bindvalue(':year', $video->year());
+    $rq->bindvalue(':sbt', $video->sbt());
    
     $rq->execute();
 

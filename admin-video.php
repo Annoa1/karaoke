@@ -3,17 +3,17 @@
 
 include 'include/db.php';
 
-// Zone administration
+//Zone administration
     //Administration User
-// require_once 'class/User.class.php';
-// session_start();
+require_once 'class/User.class.php';
+session_start();
 
 
-// require_once 'include/fonctions.php';
+require_once 'include/fonctions.php';
 
-// check_admin();
+check_admin();
 
-// $_SESSION['page'] = 'videos';
+$_SESSION['page'] = 'videos';
     //Administration Vidéo
 
 include 'class/VideoManager.class.php';
@@ -27,29 +27,17 @@ $videos = $videoManager->getList();
     <head>
         <meta charset="utf-8">
         <title>Gestion des vidéos</title>
-        <link rel="stylesheet" href="./css/style.css">
+        <link rel="stylesheet" href="./css/admin.css">
+        <link rel="icon" type="./img/png" href="./img/favicon.png"/>
+
     </head>
 
     <body>
-        <header>
-            <div class="topHeader">
-                <img src="./img/octosing_logo.png" width="80" height="80">
-                <h1>OKTOSING - Les chansons poulpesques d'OKTO</h1>
-            </div>
-
-            <div class="botHeader">
-                <nav class="menuHeader">
-                    <ul>
-                        <li><a href="index.php">Accueil</a></li>
-                        <li><a href="contact.php">Contact</a></li>
-                        <li><a href="connexion.php">Connexion</a></li>
-                        <li><a href="inscription.php">Inscription</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </header>
-
-        <div class="mainContainer">
+     <!--  -->
+          <?php include('include/admin-header.php') ?>
+          
+           
+        <div id="content">
             <h3 id="connexion">Liste des videos :</h3>
           <FORM  method="get"> 
     <table>
@@ -74,11 +62,11 @@ echo '</table> <br><button><a href="addVideo.php">Ajouter une nouvelle video</a>
       ?>
    </FORM> 
         </div>
+         <?php include('include/admin-footer.php') ?>
     </body>
 
-    <footer>
-        <p>Copyright © 2015 by The Oktogirls' Band</p>
-    </footer>
+     
+     
 </html>     
 
 
@@ -100,14 +88,3 @@ echo '</table> <br><button><a href="addVideo.php">Ajouter une nouvelle video</a>
     <title>Panneau d'admin - Vidéos</title>
     <link rel="stylesheet" href="css/admin.css">
     <link rel="icon" type="./img/png" href="./img/favicon.png"/>
-  </head>
-  <body>
-    <?php include('include/admin-header.php') ?>
-    <div id="content">
-      <p>En construction.</p>
-    </div>
-    <?php include('include/admin-footer.php') ?>
-  </body>
-</html>
-
- -->

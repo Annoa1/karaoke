@@ -1,50 +1,39 @@
 <?php
-// Vérification de la valorisation des parametes
 
+//Zone administration
+    //Administration User
+require_once 'class/User.class.php';
+session_start();
 
-if(isset($_POST['titre']))      $titre=$_POST['titre'];
-else      $titre="";
-
-if(isset($_POST['annee']))      $annee=$_POST['annee'];
-else      $annee="";
-
+// zone BDD
 
 include 'include/db.php';
-include 'class/VideoManager.class.php';
+// 
+require_once 'include/fonctions.php';
 
-$db = db_connexion();
-$videoManager = new VideoManager($db);
-// construire nouvelle video
+check_admin();
+
+$_SESSION['page'] = 'videos';
+
+
 ?>
 
 <!doctype html>
 <html lang="fr">
     <head>
         <meta charset="utf-8">
-        <title>Inscription</title>
-        <link rel="stylesheet" href="./css/style.css">
+        <title>Gestion des vidéos</title>
+        <link rel="stylesheet" href="./css/admin.css">
+        <link rel="icon" type="./img/png" href="./img/favicon.png"/>
+
     </head>
 
     <body>
-        <header>
-            <div class="topHeader">
-                <img src="./img/octosing_logo.png" width="80" height="80">
-                <h1>OKTOSING - Les chansons poulpesques d'OKTO</h1>
-            </div>
-
-            <div class="botHeader">
-                <nav class="menuHeader">
-                    <ul>
-                        <li><a href="index.php">Accueil</a></li>
-                        <li><a href="contact.php">Contact</a></li>
-                        <li><a href="connexion.php">Connexion</a></li>
-                        <li><a href="inscription.php">Inscription</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </header>
-
-        <div class="mainContainer">
+     <!--  -->
+          <?php include('include/admin-header.php') ?>
+          
+           
+        <div id="content">
             <h3 id="connexion">	Information sur la nouvelle vidéo :</h3>
             
  <form method="post" action = "initDBvideo.php">
@@ -53,7 +42,7 @@ $videoManager = new VideoManager($db);
          			<BR>
          				<BR>
           	<label>Année</label>
-          		<input name = "annee"type="text" >
+          		<input name = "annee" type="text" >
           			<BR>
           				<BR>
      		<label for="affiche">Vidéo</label>
@@ -67,11 +56,9 @@ $videoManager = new VideoManager($db);
    
    
         </div>
+        <?php include('include/admin-footer.php') ?>
     </body>
 
-    <footer>
-        <p>Copyright © 2015 by The Oktogirls' Band</p>
-    </footer>
 </html>     
 
 

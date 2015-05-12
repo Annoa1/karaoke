@@ -5,7 +5,7 @@ class Video {
   private $_id;
   private $_title;
   private $_year;
-  private $_sbt; // faux si intégré à la video, vrai si fichier existe
+  private $_sbt = false; // faux si intégré à la video, vrai si fichier existe
 
   
   
@@ -74,13 +74,13 @@ class Video {
 
    // public function setyear($year) {
    public function setYear($year) {
-    // if (is_string($year)) {
-    if (is_int($year)) {
+         $year= (int) $year;
+      if ($year>1000 && $year<3000) {
+         $this->_year =$year;
+      }
+
       
-      $this->_year = $year;
-    
- 	 }
-	}
+ 	 	}
 
   public function setSbt($sbt) {
     if (is_bool($sbt)) {
@@ -88,7 +88,7 @@ class Video {
     }
   }
 	//Constructeur video
-	  public function __construct($donnees) {
+	  public function __construct($donnees = []) {
 
     if (isset($donnees)) {
       $this->hydrate($donnees);
