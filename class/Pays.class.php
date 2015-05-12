@@ -5,8 +5,10 @@ class Pays {
   private $_id;
   private $_nom;
 
-  public function __construct($donnees = []) {
-    $this->hydrate($donnees);
+  public function __construct($donnees) {
+    if (isset($donnees)) {
+      $this->hydrate($donnees);
+    }
   }
 
   private function hydrate(array $donnees) {

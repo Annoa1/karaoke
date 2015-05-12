@@ -8,8 +8,12 @@ class User {
   private $_pwd;
   private $_color = "";
 
-  public function __construct($donnees = []) {
+  public function __construct($donnees) {
+
+    if (isset($donnees)) {
       $this->hydrate($donnees);
+    }
+
   }
 
   private function hydrate(array $donnees) {
