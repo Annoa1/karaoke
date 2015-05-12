@@ -19,8 +19,10 @@ function go_home($page = 'index.php') {
  * Sinon, elle fait une redirection vers l'index.
  * @return [type] [description]
  */
-function check_admin() {
-  if (!isset($_SESSION['user'])) {
+function check_admin() 
+{
+  if (!isset($_SESSION['user']))
+  {
     go_home();
   }
   else if (!$_SESSION['user']->isAdmin()) {
