@@ -19,10 +19,11 @@ class ArtistManager {
 
   // Supprime un artiste dans la BDD
   public function delete(Artist $artist) {
-    $this->_db->prepare(
+    $rq = $this->_db->prepare(
         'DELETE FROM T_ARTIST_ART
         WHERE ART_ID = :id'
          );
+
     $rq->bindvalue(':id', $artist->id());
     $rq->execute();
 
@@ -85,6 +86,22 @@ class ArtistManager {
     //var_dump($rq);
 
     $rq->bindvalue(':id', $artist->id());
+    $rq->bindvalue(':nom', $artist->nom());
+
+    $rq->execute();
+
+    $count = $rq->rowCount();
+
+    return ($count>0);
+  }
+
+  // Ajoute un artiste à la BDD
+  public function add(Artist $artist) {
+    $rq = $this->_db->prepare(
+        'INSERT INTO T_ARTIST_ART (ART_NOM)
+        VALUE (:nom)'
+      );
+
     $rq->bindvalue(':nom', $artist->nom());
 
     $rq->execute();

@@ -21,18 +21,29 @@ if (isset($_GET['id'])) {
   $id = $_GET['id'];
   $artist = $artistManager->get($id);
 
+  if (!$artist) {
+    go_home("admin-index.php");
+  }
+
   if (isset($_GET['action'])) {
     
     if ($artistManager->delete($artist)) {
       $msg = "L'artiste <strong>".$artist->nom()."</strong> a bien été supprimé.";
     }
   }
-  
+
   else if(isset($_POST['nom'])) {
     $artist->setNom($_POST['nom']);
     if ($artistManager->update($artist)) { // corriger update
       $msg = "L'artiste <strong>".$artist->nom()."</strong> a bien été modifié.";
     }
+  }
+}
+else if (isset($_POST['nom'])) {
+  $artist = new Artist();
+  $artist->setNom($_POST['nom']);
+  if ($artistManager->add($artist)) {
+    $msg = "L'artiste <strong>".$artist->nom()."</strong> a bien été modifié.";
   }
 }
 
@@ -78,6 +89,12 @@ $artists = $artistManager->getList();
         }
       ?>
     </table>
+    <p></p>
+    <form method="post" action="admin-artist.php">
+      <label for="nom">Nom d'artiste</label><input type="text" id="nom" name="nom"><br>
+      <input type="submit" value="Ajouter">
+    </form>
+
     </div>
     
     <?php include('include/admin-footer.php') ?>
@@ -87,3 +104,4 @@ $artists = $artistManager->getList();
     
   </body>
 </html>
+
