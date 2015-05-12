@@ -1,6 +1,27 @@
 <?php
-require_once 'class/User.class.php';
-session_start();
+	require_once 'class/User.class.php';
+	session_start();
+	include 'include/fonctions.php';
+	// $id=$_GET['id'];
+	include 'include/db.php';
+	include 'class/VideoManager.class.php';
+	$db = db_connexion();
+	$myvideo = new VideoManager($db);
+	// $myvideo= $myvideo->get($id);
+
+	// $chemin=$myvideo->path();
+
+
+
+	if (isset[$_GET['id']) 
+	{
+		afficher le player;
+	}
+	else 
+	{
+		afficher les poulpes;
+	}
+
 ?>
 
 <!DOCTYPE html>
@@ -18,12 +39,36 @@ session_start();
 
 		<div class="mainContainer">
 			<div id="videoContainer">
-				
-				<video controls >
-					<source src="./video/CanabasseNaGnouDem.mp4" type="video/mp4"/>
-					<track kind="subtitles" src="./video/CanabasseNaGnouDem.vtt" srclang="en" default></track>
-					<source src="./video/ponponpon.mp4" type="video/mp4"/>
+				<div id="choice">
+					<!-- 
+						<a href=modif.php?id='.$video->id().'>Modifier</a></button></td>
+						adresse : modif.php
+						?		: il y a des parametre a la suite
+						id 		: le nom de notre parametre
+						$video->id : la valeur de notre parametre (ici on )
+					 -->
 
+		        	<div>
+		        		<a class="title" href="play.php?id=<?php echo $videos[0]->id() ?>">Pays A</a>
+		        		<a href="play.php?id=<?php echo $videos[0]->id() ?>"><img src="./img/octopus_cute_green.png"></a>
+		        	</div>    		      
+
+		        	<div>
+		        		<a class="title" href="play.php?id=<?php echo $videos[1]->id() ?>">Pays B</a>
+		        		<a href="play.php?id=<?php echo $videos[1]->id() ?>"><img src="./img/octopus_cute_pink.png"></a>
+		        	</div>   		
+		           
+		        	<div>
+		        		<a class="title" href="play.php?id=<?php echo $videos[2]->id() ?>">Pays C</a>
+		        		<a href="play.php?id=<?php echo $videos[2]->id() ?>"><img src="./img/octopus_cute_purple.png"></a>
+		        	</div> 
+		        				        
+				</div>
+
+				<video controls >
+					<?php 
+						echo '<source src='.$chemin.' />';
+					?>
 				</video>
 		
 			</div>

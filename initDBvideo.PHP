@@ -15,8 +15,15 @@ if(!isset($_POST['titre']) || !isset($_POST['annee'])) {
 }
 
 // recuperation du titre et de l'année
+<<<<<<< HEAD
+
+$titre=$_POST['titre'];
+$year=$_POST['annee'];
+// $sbt=$_Files['video'];
+=======
 $titre = $_POST['titre'];
 $year = $_POST['annee'];
+>>>>>>> eb6a1798bbdf5f5d2682d4a6a189c6b907a0920d
 
 // connexion BDD
 $db = db_connexion();
@@ -27,6 +34,31 @@ $videotoadd= new Video();
 
 $videotoadd->setTitle($titre);
 $videotoadd->setYear($year);
+<<<<<<< HEAD
+// $videotoadd->setSbt($sbt);
+var_dump($videotoadd);
+
+$new = $newvideo->add($videotoadd);
+
+
+?>
+
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<p> 
+	<?php 
+		if ($new) {
+			echo "Video mis à jour avec succés ";
+		}
+	?>
+
+	<a href="admin-video.php">Retourner gestion video</a>
+</p>
+=======
 
 if ($newvideo->add($videotoadd)) {
 	$_SESSION['msg'] = "Vidéo ".$videotoadd->title()." bien ajoutée.";
@@ -35,5 +67,6 @@ if ($newvideo->add($videotoadd)) {
 	$_SESSION['msg'] = "La vidéo n'a pas pu être ajoutée.";
 	go_home('admin-video.php');
 }
+>>>>>>> eb6a1798bbdf5f5d2682d4a6a189c6b907a0920d
 
 ?>

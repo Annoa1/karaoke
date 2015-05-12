@@ -48,6 +48,7 @@ $listPays = $paysManager->getList();
         } 
         echo substr($s, 0, strlen($s)-1);
         ?>
+
         </div>
             
         <form method="post" action="initDBvideo.php" enctype="multipart/form-data">
