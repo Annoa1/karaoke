@@ -53,7 +53,7 @@ if (isset($_POST['pseudo']) && isset($_POST['email']) && isset($_POST['motDePass
         <?php include 'include/header.php'; ?>
 
         <div class="mainContainer">
-            <div id="mainContainerContent">
+            <div class="mainContainerContent">
                 <?php
                 // Si l'inscription s'est bien passée
                 if ($inscription) { ?>
@@ -64,7 +64,7 @@ if (isset($_POST['pseudo']) && isset($_POST['email']) && isset($_POST['motDePass
                 // Si l'inscription n'a pas encore eu lieu
                 else { ?>
                     <h3>Inscris-toi dès maintenant !</h3>
-                    <p>En t'inscrivant, tu peux...</p>
+                    <p>Et accède à plus de vidéos funs et exotiques !</p>
                     <br>
                 <?php
                     // Si message d'erreur
@@ -77,9 +77,10 @@ if (isset($_POST['pseudo']) && isset($_POST['email']) && isset($_POST['motDePass
                     <p><label for="email">E-mail*</label><input type="text" name="email" id="email"/></p>
                     <p><label for="motDePasse1">Mot De Passe*</label><input type="password" name="motDePasse1" id="motDePasse1"/></p>
                     <p><label for="motDePasse1">Mot De Passe*</label><input type="password" name="motDePasse2" id="motDePasse1"/></p>
-                    <input type="submit" value="S'INSCRIRE">
-                    <br><br><br>
-                    <p><font color="green"><i>*Champs obligatoires</i></font></p>
+                    <p class="submitButton">
+                        <span><font color="green"><i>*Champs obligatoires</i></font></span>
+                        <br><br><input type="submit" value="S'INSCRIRE">
+                    </p>
                 </form>
                 
                 <?php

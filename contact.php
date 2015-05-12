@@ -16,7 +16,9 @@ session_start(); // A laisser en premiere ligne
         <?php include 'include/header.php'; ?>
 
         <div class="mainContainer">
-            <p>BLAHBLAHBLAH</p>
+            <div class="mainContainerContent">
+                <p>BLAHBLAHBLAH</p>
+            </div>
         </div>
 
         <?php include 'include/footer.php'; ?>

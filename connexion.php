@@ -42,22 +42,25 @@ if (isset($_POST['pseudo']) && isset($_POST['motDePasse'])) {
         <?php include 'include/header.php'; ?>
 
         <div class="mainContainer">
-            <h3 id="connexion">Connexion</h3>
-            <form id="menuConnexion" method="post" action="connexion.php">
-                <?php
-                    if ($msg) {
-                        echo "<p>".$msg."</p>";
-                    }
-                ?>
-                <p class="formConnexion">
-                    <label>Pseudo</label><input type="text" name="pseudo" />
-                </p>
-                <p class="formConnexion">
-                    <label>Mot De Passe</label><input type="password" name="motDePasse" />
-                </p>
-
-                <input type="submit" name="connexion" value="LOGIN">
-            </form>
+            <div class="mainContainerContent">
+                <h3 id="connexion">Connexion</h3>
+                <form id="menuConnexion" method="post" action="connexion.php">
+                    <?php
+                        if ($msg) {
+                            echo "<p>".$msg."</p>";
+                        }
+                    ?>
+                    <p class="formConnexion">
+                        <label>Pseudo</label><input type="text" name="pseudo" />
+                    </p>
+                    <p class="formConnexion">
+                        <label>Mot De Passe</label><input type="password" name="motDePasse" />
+                    </p>
+                    <p class="submitButton">
+                        <br><input type="submit" name="connexion" value="LOGIN">
+                    </p>
+                </form>
+            </div>
         </div>
     </body>
 

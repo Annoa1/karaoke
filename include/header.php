@@ -20,12 +20,15 @@
             </ul>
         </nav>
         <?php
-            if (isset($_SESSION['user'])) {
-                if ($_SESSION['user']->isAdmin()) {
-                    echo "<p><a href='admin-index.php'>Panneau d'administration</a></p>";
+            if (isset($_SESSION['user'])) 
+            {
+                if ($_SESSION['user']->isAdmin()) 
+                {
+                    echo "<p class='userName'><a href='admin-index.php'>Accès au panneau d'administration</a></p>";
                 }
-                else {
-                    echo "<p><a href='profil.php?id=".$_SESSION['user']->id()."'>".$_SESSION['user']->login()."</a></p>";
+                else 
+                {
+                    echo "<p class='userName'>Bienvenue <a href='profil.php?id=".$_SESSION['user']->id()."'>".$_SESSION['user']->login()."</a></p>";
                 }
             }
         ?>

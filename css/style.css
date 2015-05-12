@@ -49,13 +49,13 @@ header
 .topHeader h1 
 {
 	/*font-size: 25px;*/
-	font-size: 35px;
+	font-size: 50px;
 	font-weight: 300;
 	/*font-family: fantasy;*/
 	font-family: "bubblefont1";
 	position: absolute;
 	/* margin: top right bottom left; */
-	margin: 45px 0 0 20px;
+	margin: 30px 0 0 20px;
 	display: inline-block;
 }
 
@@ -77,16 +77,28 @@ header
 	height: 50px;
 }
 
+.userName
+{
+	margin:30px auto auto 30px;
+	font-size: 27px;
+	font-family: fantasy;
+}
+
+.userName a
+{
+	color:#0B6121;
+}
+
 .menuHeader 
 {
 	float: right;
-	margin: 5px auto;
-	margin-right: 50px;
+	/*margin: 5px auto;
+	margin-right: 50px;*/
+	margin: auto 25px 50px 30px;
 }
 
 .menuHeader ul 
 {
-	
 }
 
 .menuHeader ul li 
@@ -125,6 +137,12 @@ header
 	width: 90%;
 	margin: 0 auto;
 	background-color: #dfeffb;
+}
+
+.mainContainerContent
+{
+	/*padding-top: 50px;*/
+	padding: 50px;
 }
 
 #play
@@ -183,10 +201,9 @@ header
 	/*background-color: blue;*/
 }
 
-
-#mainContainerContent
+.submitButton
 {
-	padding-top: 25px;
+	padding-left: 250px;
 }
 
 footer 
