@@ -27,12 +27,8 @@ class Artist {
   }
 
   //Constructeur artiste
-	  public function __construct($donnees) {
-
-    if (isset($donnees)) {
+	  public function __construct($donnees = []) {
       $this->hydrate($donnees);
-    }
-
   }
 
   public function hydrate(array $donnees) {
