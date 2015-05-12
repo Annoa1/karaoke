@@ -52,9 +52,6 @@ $_SESSION['page'] = 'videos';
          	<button type="submit" >Enregistrer </button>
 </form>
 
-
-   
-   
         </div>
         <?php include('include/admin-footer.php') ?>
     </body>
