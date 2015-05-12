@@ -20,7 +20,7 @@ class VideoManager {
 
 // Ajoute d'une vidéo à la BDD
 public function add(Video $video) {
-    $rq = $this->_db->prepare(
+    $rq = $this->_db->query(
         'INSERT INTO T_VIDEO_VID (VID_TITLE, VID_YEAR, VID_SBT)
         VALUES (:title, :year, :sbt);'
       );
@@ -43,14 +43,15 @@ public function add(Video $video) {
         // WHERE VID_ID='.$id
         //  );
     // les requêtes préparées évitent les erreurs (ex : guillemets)
-    $this->_db->prepare(
+    $rq=$this->_db->prepare(
       'DELETE FROM T_VIDEO_VID
       WHERE VID_ID = :id'
     );
 
-    $rq->execute();
-
+   
+   
     $rq->bindvalue(':id', $video->id());
+        $rq->execute();
     // Retourne vrai si il y a eu une suppression
     $count = $rq->rowCount();
     return ($count>0);
@@ -67,13 +68,13 @@ public function add(Video $video) {
     //   WHERE VID_ID = '.$id
     //   );
     
-    $rq = $this->_db->prepare(
+    $rq = $this->_db->query(
       'SELECT VID_ID as "id",
               VID_TITLE as "title",
               VID_YEAR as "year",
               VID_SBT as "sbt"
           FROM T_VIDEO_VID 
-      WHERE VID_ID = :id'
+      WHERE VID_ID = '.$id
       );
     $rq->bindvalue(':id', $id);
 
@@ -124,8 +125,14 @@ public function add(Video $video) {
   }
 
   // Modifie une video dans la BDD
-  public function update(Video $video) {
-    $rq = $this->_db->prepare(
+  public function update(VideoManager $video) {
+
+    if ($video)
+      $videotoadd=new Video($video);
+    else
+      return false;
+
+    $rq = $this->_db->query(
         'UPDATE T_VIDEO_VID
         SET VID_TITLE = :title,
         VID_YEAR = :year,
