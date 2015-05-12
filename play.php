@@ -1,22 +1,26 @@
 <?php
-// FAIRE UN ISSET pour afficher les poulpes
-// if (isset[$_POST['id']) {
-// afficher le player; }
-// else {
-// afficher les poulpes;}
+	require_once 'class/User.class.php';
+	session_start();
+	include 'include/fonctions.php';
+	// $id=$_GET['id'];
+	include 'include/db.php';
+	include 'class/VideoManager.class.php';
+	$db = db_connexion();
+	$myvideo = new VideoManager($db);
+	// $myvideo= $myvideo->get($id);
+
+	// $chemin=$myvideo->path();
 
 
-require_once 'class/User.class.php';
-session_start();
-include 'include/fonctions.php';
-// $id=$_GET['id'];
-include 'include/db.php';
-include 'class/VideoManager.class.php';
-$db = db_connexion();
-$myvideo = new VideoManager($db);
-// $myvideo= $myvideo->get($id);
 
-// $chemin=$myvideo->path();
+	if (isset[$_GET['id']) 
+	{
+		afficher le player;
+	}
+	else 
+	{
+		afficher les poulpes;
+	}
 
 ?>
 
@@ -60,9 +64,10 @@ $myvideo = new VideoManager($db);
 		        	</div> 
 		        				        
 				</div>
+
 				<video controls >
 					<?php 
-					echo '<source src='.$chemin.' />';
+						echo '<source src='.$chemin.' />';
 					?>
 				</video>
 		
