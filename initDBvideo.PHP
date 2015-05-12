@@ -5,18 +5,21 @@ session_start(); // A laisser en premiere ligne
 include 'include/db.php';
 include 'class/VideoManager.class.php';
 // $id=$_GET['id'];
-$titre=$_GET['titre'];
-$year=$_GET['annee'];
+$titre=$_POST['titre'];
+$year=$_POST['annee'];
 
 $db = db_connexion();
-$videoManager = new VideoManager($db);
-$newvideo= new Video();
-$newvideo.settitle($titre);
-$newvideo.setyear($year);
+$newvideo = new VideoManager($db);
 
-$new = $videoManager->update($newvideo);
+$videotoadd= new Video($db);
+var_dump($videotoadd);
+$video=$newvideo->setTitle($titre);
+$newvideo->setYear($year);
+var_dump($newvideo);
 
-//test comit
+$new = $newvideo->add($newvideo);
+var_dump($new);
+
 
 ?>
 

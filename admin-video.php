@@ -5,19 +5,18 @@ include 'include/db.php';
 
 // Zone administration
     //Administration User
-require_once 'class/User.class.php';
-session_start();
+// require_once 'class/User.class.php';
+// session_start();
 
 
-require_once 'include/fonctions.php';
+// require_once 'include/fonctions.php';
 
-check_admin();
+// check_admin();
 
-$_SESSION['page'] = 'videos';
+// $_SESSION['page'] = 'videos';
     //Administration Vidéo
 
 include 'class/VideoManager.class.php';
-include 'class/Video.class.php';
 $db = db_connexion();
 $videoManager = new VideoManager($db);
 $videos = $videoManager->getList();
@@ -52,7 +51,7 @@ $videos = $videoManager->getList();
 
         <div class="mainContainer">
             <h3 id="connexion">Liste des videos :</h3>
-            
+          <FORM  method="get"> 
     <table>
       <tr>
         <th>Titre</th>
@@ -73,7 +72,7 @@ $videos = $videoManager->getList();
              }
 echo '</table> <br><button><a href="addVideo.php">Ajouter une nouvelle video</a></button>';
       ?>
-   
+   </FORM> 
         </div>
     </body>
 

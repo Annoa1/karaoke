@@ -47,7 +47,7 @@ $videoManager = new VideoManager($db);
         <div class="mainContainer">
             <h3 id="connexion">	Information sur la nouvelle vidéo :</h3>
             
- <form method="post">
+ <form method="post" action = "initDBvideo.php">
           	<label>Titre</label>
          		<input  name = "titre"type="text" >
          			<BR>
@@ -60,7 +60,7 @@ $videoManager = new VideoManager($db);
 				<input id="affiche" name="video" type="file" />
        				<BR>
        					<BR>
-         	<button type="submit" ><a href="addvideoDB.php">Enregistrer </a></button>
+         	<button type="submit" >Enregistrer </button>
 </form>
 
 
