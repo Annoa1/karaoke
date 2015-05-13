@@ -1,11 +1,15 @@
 <?php
 
+require_once 'class/Pays.class.php';
+
 // Declaration des attributs
 class Video {
   private $_id;
   private $_title;
-  private $_year;
+  private $_year = null;
   private $_sbt = false; 
+  private $_pays = null; // instance de pays
+  private $_artist = null;
 
 // Récuperation des attributs
   public function id() {
@@ -22,6 +26,10 @@ class Video {
 
   public function sbt() {
     return $this->_sbt;
+  }
+
+  public function pays() {
+    return $this->_pays;
   }
 
   // Retourne le chemin de la vidéo
@@ -51,6 +59,10 @@ class Video {
     if (is_string($title)) {
       $this->_title = $title;
     }
+  }
+
+  public function setPays(Pays $pays) {
+    $this->_pays = $pays;
   }
 
    // public function setyear($year) {

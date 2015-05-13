@@ -10,7 +10,8 @@ session_start();
 
 require 'include/db.php';
 require_once 'include/fonctions.php';
-require 'class/PaysManager.class.php';
+require_once 'class/PaysManager.class.php';
+require_once 'class/ArtistManager.class.php';
 
 check_admin();
 
@@ -18,7 +19,9 @@ $_SESSION['page'] = 'videos';
 
 $db = db_connexion();
 $paysManager = new PaysManager($db);
+$artistManager = new ArtistManager($db);
 $listPays = $paysManager->getList();
+$listArtists = $artistManager->getList();
 
 
 ?>
@@ -41,33 +44,44 @@ $listPays = $paysManager->getList();
 
         <h3 id="connexion">	Créer une nouvelle vidéo :</h3>
 
-        <div id="pays-string"><?php 
-        $s = "";
-        foreach ($listPays as $pays) {
-            $s .= $pays->nom().';';
-        } 
-        echo substr($s, 0, strlen($s)-1);
-        ?>
-
-        </div>
             
         <form method="post" action="initDBvideo.php" enctype="multipart/form-data">
           	<label for="titre">Titre</label><input id="titre" name="titre" type="text" ><BR>
           	<label for="annee">Année</label><input id="annee" name="annee" type="text" ><BR>
             <label for="pays">Pays</label><input id="pays" name="pays" type="text"><BR>
-            <label for="artist">Artist</label><input id="artist" name="artist" type="text"><BR>
+            <label for="artist">Artist</label><input class="artist" name="artist[]" type="text">
+                <button id="new_art" class="icones">+</button><BR>
             <label for="affiche">Vidéo</label><input id="affiche" name="video" type="file"><BR>
-            <label for="sbt">Sous-titres</label><a href="#">Importer des sous-titres</a><BR>
+            <label for="sbt" id="lab_sbt">Sous-titres</label><button id="import_sbt">Importer des sous-titres</button><BR>
             <BR>
             <input type="submit" value="Enregistrer">
         </form>
 
+    
+    
+    <div id="pays-string"><?php 
+        $s = "";
+        foreach ($listPays as $pays) {
+            $s .= $pays->nom().';';
+        } 
+        echo substr($s, 0, strlen($s)-1);
+    ?>
+    </div>
+    <div id="artists-string"><?php 
+        $s = "";
+        foreach ($listArtists as $artist) {
+            $s .= $artist->nom().';';
+        } 
+        echo substr($s, 0, strlen($s)-1);
+    ?>
+    </div>
     </div>
     <?php include('include/admin-footer.php') ?>
-    </body>
     <script src="js/jquery.js"></script>
     <script src="js/jquery-ui.custom/jquery-ui.js"></script>
     <script src="js/admin.js"></script>
+    </body>
+    
 
 </html>     
 

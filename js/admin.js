@@ -12,7 +12,7 @@
     but_pwd.click(reset_pwd);
   } 
 
-  // Auto-complétion
+  // Auto-complétion des pays
   var paysString;
   var listPays;
   if (paysString = $('#pays-string').html()) {
@@ -21,7 +21,51 @@
         source: listPays
     });
   }
-  
+
+  // Auto-compétion des artistes
+  var artistString;
+  var listArtist;
+  function autoCompleteArtist() {
+    listArtist = artistString.split(";");
+    $( ".artist" ).autocomplete({
+        source: listArtist
+    });
+  }
+  if (artistString = $('#artists-string').html()) {
+    autoCompleteArtist();
+  }
+
+  // Ajout vidéo : nouvel artist
+  var new_art;
+  if (new_art = $('#new_art')) {
+
+    function addNewArtist(e){
+      e.preventDefault();
+      $(this).after('<br><label></label><input class="artist" name="artist[]" type="text"><button id="new_art" class="icones">+</button>');
+      $(this).remove();
+      $('#new_art').click(addNewArtist);
+      autoCompleteArtist();
+    }
+    
+    new_art.click(addNewArtist);
+  }
+
+  // Ajout vidéo : importer des sous-titres
+  var import_sbt;
+  if (import_sbt = $('#import_sbt')) {
+
+    function addInputsSbt(e){
+      e.preventDefault();
+      var s = '<label for="vtt">Sous-titres (vtt)</label><input id="vtt" name="vtt" type="text">';
+      s += '<br><label for="srt">Sous-titres (srt)</label><input id="srt" name="srt" type="text">';
+      s += '<br><label for="srt_prog">Sous-titres progressifs (srt)</label><input id="srt_prog" name="srt_prog" type="text">';
+      $('#lab_sbt').remove();
+      $(this).after(s);
+      $(this).remove();
+    }
+    
+    import_sbt.click(addInputsSbt);
+  }
   // Modification d'un artist
   function modifArtist() {
     var art_id = $(this).val();

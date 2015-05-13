@@ -1,6 +1,6 @@
 <?php
 
-include 'Pays.class.php';
+require_once 'Pays.class.php';
 
 class PaysManager {
 

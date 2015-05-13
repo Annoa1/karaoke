@@ -43,7 +43,7 @@ else if (isset($_POST['nom'])) {
   $artist = new Artist();
   $artist->setNom($_POST['nom']);
   if ($artistManager->add($artist)) {
-    $msg = "L'artiste <strong>".$artist->nom()."</strong> a bien été modifié.";
+    $msg = "L'artiste <strong>".$artist->nom()."</strong> a bien été ajoutée.";
   }
 }
 
