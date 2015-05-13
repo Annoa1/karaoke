@@ -87,6 +87,12 @@ class Video {
  	 	}
 
   public function setSbt($sbt) {
+    if (is_string($sbt)) {
+      if ($sbt == "0")
+        $this->_sbt = false;
+      else if ($sbt == "1")
+        $this->_sbt = true;
+    }
     if (is_bool($sbt)) {
       $this->_sbt = $sbt;
     }

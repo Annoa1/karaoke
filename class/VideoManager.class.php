@@ -1,13 +1,12 @@
 <?php
 
 require_once 'Video.class.php';
-require_once 'PaysManager.class.php';
+require_once 'Pays.class.php';
 
 class VideoManager {
 
   // Instance de PDO
   private $_db;
-  private $_paysManager;
 
   // Constructeur
   public function __construct($db) {
@@ -17,7 +16,6 @@ class VideoManager {
   // Setteur de _db
   public function setDb (PDO $db) {
     $this->_db = $db;
-    $this->_paysManager = new PaysManager($db);
   }
 
 
@@ -91,10 +89,15 @@ public function add(Video $video) {
               VID_YEAR as "year",
               VID_SBT as "sbt",
               PAY_ID as "idPays",
+              PAY_NOM as "nomPays",
               ART_ID as "idArt",
-              COUNT(ART_ID) as "nbArtists"
+              COUNT(ART_ID) as "nbArtists",
+              ART_ID as "idArt",
+              ART_NOM as "nomArt"
         FROM T_VIDEO_VID
           NATURAL LEFT JOIN TJ_REALISE_REA
+          NATURAL LEFT JOIN T_ARTIST_ART
+          NATURAL LEFT JOIN TJ_PAYS_PAY
         WHERE VID_ID = :id
         GROUP BY VID_ID'
       );
@@ -106,10 +109,38 @@ public function add(Video $video) {
 
     if ($donnees) {
       $video = new Video($donnees);
+      // Si pays
       if ($donnees['idPays']) {
-        $video->setPays($this->_paysManager->get($donnees['idPays']));
-        return $video;
+        $pays = new Pays();
+        $pays->setId($donnees['idPays']);
+        $pays->setNom($donnees['nomPays']);
+        $video->setPays($pays);
       }
+      // Si artiste
+      $nbArtists = (int) $donnees['nbArtists'];
+      if ($nbArtists == 1) {
+        $art = new Artist();
+        $art->setId($donnees['idArt']);
+        $art->setNom($donnes['nomArt']);
+        $video->addArtist($art);
+      }
+      else if ($nbArtists > 1) {
+        $sql = $this->_db->prepare(
+          'SELECT ART_ID as "id",
+                  ART_NOM as "nom"
+            FROM TJ_REALISE_REA
+              NATURAL JOIN T_ARTIST_ART
+            WHERE VID_ID = :id '
+          );
+        $sql->bindvalue('data:id', $id);
+        $sql->execute();
+
+        while ($data = $sql->fetch(PDO::FETCH_ASSOC)) {
+          $art = new Artist($data);
+          $video->addArtist($art);
+        }
+      }
+      return $video;
     }
     else
       return false;
@@ -120,22 +151,57 @@ public function add(Video $video) {
     $videos = [];
 
     $rq = $this->_db->query(
-        'SELECT  VID_ID as "id",
+        'SELECT VID_ID as "id",
               VID_TITLE as "title",
               VID_YEAR as "year",
               VID_SBT as "sbt",
               PAY_ID as "idPays",
-              PAY_NOM as "nomPays"
-            FROM T_VIDEO_VID
-              NATURAL LEFT JOIN TR_PAYS_PAY
-            order by VID_TITLE'
+              PAY_NOM as "nomPays",
+              ART_ID as "idArt",
+              COUNT(ART_ID) as "nbArtists",
+              ART_ID as "idArt",
+              ART_NOM as "nomArt"
+        FROM T_VIDEO_VID
+          NATURAL LEFT JOIN TJ_REALISE_REA
+          NATURAL LEFT JOIN T_ARTIST_ART
+          NATURAL JOIN TR_PAYS_PAY
+        GROUP BY VID_ID'
       );
+    
     while ($donnees = $rq->fetch(PDO::FETCH_ASSOC)) {
       $video = new Video($donnees);
-      $pays = new Pays();
-      $pays->setId($donnees['idPays']);
-      $pays->setNom($donnees['nomPays']);
-      $video->setPays($pays);
+
+      // Si pays
+      if ($donnees['idPays']) {
+        $pays = new Pays();
+        $pays->setId($donnees['idPays']);
+        $pays->setNom($donnees['nomPays']);
+        $video->setPays($pays);
+      }
+      // Si artiste
+      $nbArtists = (int) $donnees['nbArtists'];
+      if ($nbArtists == 1) {
+        $art = new Artist();
+        $art->setId($donnees['idArt']);
+        $art->setNom($donnes['nomArt']);
+        $video->addArtist($art);
+      }
+      else if ($nbArtists > 1) {
+        $sql = $this->_db->prepare(
+          'SELECT ART_ID as "id",
+                  ART_NOM as "nom"
+            FROM TJ_REALISE_REA
+              NATURAL JOIN T_ARTIST_ART
+            WHERE VID_ID = :id '
+          );
+        $sql->bindvalue(':id', $video->id());
+        $sql->execute();
+
+        while ($data = $sql->fetch(PDO::FETCH_ASSOC)) {
+          $art = new Artist($data);
+          $video->addArtist($art);
+        }
+      }
       $videos[] = $video;
     }
 
