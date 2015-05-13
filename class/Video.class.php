@@ -1,6 +1,7 @@
 <?php
 
 require_once 'class/Pays.class.php';
+require_once 'class/Artist.class.php';
 
 // Declaration des attributs
 class Video {
@@ -9,7 +10,7 @@ class Video {
   private $_year = null;
   private $_sbt = false; 
   private $_pays = null; // instance de pays
-  private $_artist = null;
+  private $_artist = [];
 
 // Récuperation des attributs
   public function id() {
@@ -32,6 +33,10 @@ class Video {
     return $this->_pays;
   }
 
+  public function artist() {
+    return $this->_artist;
+  }
+
   // Retourne le chemin de la vidéo
   public function path() {
     return "video/".$this->id().".mp4";
@@ -47,6 +52,14 @@ class Video {
     if ($prog)
       return "sbt/srt_prog/".$this->getId().".srt";
     return "sbt/srt/".$this->getId().".srt";
+  }
+
+  public function artistToString($separator) {
+    $artists = [];
+    foreach ($this->_artist as $art) {
+      $artists[] = $art->nom();
+    }
+    return implode($separator, $artists);
   }
 
   // Valorisation des attributs
@@ -77,6 +90,10 @@ class Video {
     if (is_bool($sbt)) {
       $this->_sbt = $sbt;
     }
+  }
+
+  public function addArtist(Artist $artist) {
+    $this->_artist[] = $artist;
   }
   
 	//Constructeur video

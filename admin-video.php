@@ -42,11 +42,15 @@ $videos = $videoManager->getList();
             echo "<p>".$_SESSION['msg']."</p>";
             $_SESSION['msg'] = null;
         }
+        //var_dump($videos);
        ?>
         <table>
             <tr>
                 <th>Titre</th>
                 <th>Annee</th>
+                <th>Pays</th>
+                <th>Fichiers sous-titres</th>
+                <th>Artistes</th>
             </tr>
             <?php
         
@@ -54,7 +58,10 @@ $videos = $videoManager->getList();
               echo '<tr>';
               echo '<td>'.$video->title().'</td>';
               echo '<td>'.$video->year().'</td>';
-              echo '<td><a href=delete.php?id='.$video->id().'><button>Supprimer</button></a></td>';
+              echo ($video->pays())? '<td>'.$video->pays()->nom().'</td>':'<td>?</td>';
+              echo ($video->sbt())? '<td>Oui</td>':'<td></td>';
+              echo '<td>'.$video->artistToString(",").'</td>';
+              echo '<td><a href=deleteVideo.php?id='.$video->id().'><button>Supprimer</button></a></td>';
               echo '<td><a href=modif.php?id='.$video->id().'><button>Modifier</button></a></td>';
               echo '</tr> ';
             }

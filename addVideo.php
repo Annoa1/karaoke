@@ -44,14 +44,21 @@ $listArtists = $artistManager->getList();
 
         <h3 id="connexion">	Créer une nouvelle vidéo :</h3>
 
+        <?php 
+        if ($_SESSION['msg']) {
+            echo "<p>".$_SESSION['msg']."</p>";
+            $_SESSION['msg'] = null;
+        }
+         ?>
+        
             
         <form method="post" action="initDBvideo.php" enctype="multipart/form-data">
-          	<label for="titre">Titre</label><input id="titre" name="titre" type="text" ><BR>
+          	<label for="titre">Titre *</label><input id="titre" name="titre" type="text" ><BR>
           	<label for="annee">Année</label><input id="annee" name="annee" type="text" ><BR>
-            <label for="pays">Pays</label><input id="pays" name="pays" type="text"><BR>
+            <label for="pays">Pays *</label><input id="pays" name="pays" type="text"><BR>
             <label for="artist">Artist</label><input class="artist" name="artist[]" type="text">
                 <button id="new_art" class="icones">+</button><BR>
-            <label for="affiche">Vidéo</label><input id="affiche" name="video" type="file"><BR>
+            <label for="affiche">Vidéo *</label><input id="affiche" name="video" type="file"><BR>
             <label for="sbt" id="lab_sbt">Sous-titres</label><button id="import_sbt">Importer des sous-titres</button><BR>
             <BR>
             <input type="submit" value="Enregistrer">
@@ -62,7 +69,7 @@ $listArtists = $artistManager->getList();
     <div id="pays-string"><?php 
         $s = "";
         foreach ($listPays as $pays) {
-            $s .= $pays->nom().';';
+            $s .= $pays->id().'-'.$pays->nom().';';
         } 
         echo substr($s, 0, strlen($s)-1);
     ?>
@@ -70,7 +77,7 @@ $listArtists = $artistManager->getList();
     <div id="artists-string"><?php 
         $s = "";
         foreach ($listArtists as $artist) {
-            $s .= $artist->nom().';';
+            $s .= $artist->id().'-'.$artist->nom().';';
         } 
         echo substr($s, 0, strlen($s)-1);
     ?>

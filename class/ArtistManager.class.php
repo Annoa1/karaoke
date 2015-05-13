@@ -83,8 +83,6 @@ class ArtistManager {
         WHERE ART_ID = :id'
       );
 
-    //var_dump($rq);
-
     $rq->bindvalue(':id', $artist->id());
     $rq->bindvalue(':nom', $artist->nom());
 
@@ -106,9 +104,11 @@ class ArtistManager {
 
     $rq->execute();
 
-    $count = $rq->rowCount();
+    if (!$rq->rowCount()) {
+      return false;
+    }
 
-    return ($count>0);
+    return ($this->_db->lastInsertId());
   }
 
 }

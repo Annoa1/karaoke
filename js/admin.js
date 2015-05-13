@@ -56,9 +56,9 @@
 
     function addInputsSbt(e){
       e.preventDefault();
-      var s = '<label for="vtt">Sous-titres (vtt)</label><input id="vtt" name="vtt" type="text">';
-      s += '<br><label for="srt">Sous-titres (srt)</label><input id="srt" name="srt" type="text">';
-      s += '<br><label for="srt_prog">Sous-titres progressifs (srt)</label><input id="srt_prog" name="srt_prog" type="text">';
+      var s = '<label for="vtt">Sous-titres (vtt) *</label><input id="vtt" name="vtt" type="file">';
+      s += '<br><label for="srt">Sous-titres (srt) *</label><input id="srt" name="srt" type="file">';
+      s += '<br><label for="srt_prog">Sous-titres progressifs (srt) *</label><input id="srt_prog" name="srt_prog" type="file">';
       $('#lab_sbt').remove();
       $(this).after(s);
       $(this).remove();
