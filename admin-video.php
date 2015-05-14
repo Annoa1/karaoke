@@ -61,6 +61,7 @@ $videos = $videoManager->getList();
               echo ($video->pays())? '<td>'.$video->pays()->nom().'</td>':'<td>?</td>';
               echo ($video->sbt())? '<td>Oui</td>':'<td></td>';
               echo '<td>'.$video->artistToString(", ").'</td>';
+              echo '<td class="td_button"><a href="admin-play.php?id='.$video->id().'"><button class="icones">V</button></a></td>';
               echo '<td class="td_button"><a href="modif.php?id='.$video->id().'"><button class="icones">D</button></a></td>';
               echo '<td class="td_button"><a href="deleteVideo.php?id='.$video->id().'""><button class="icones">X</button></a></td>';
               echo '</tr> ';
@@ -76,23 +77,3 @@ $videos = $videoManager->getList();
     </body>
      
 </html>     
-
-
-
-
-<!-- 
-
-      
-
-=======
-
-
-?>
-
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Panneau d'admin - Vidéos</title>
-    <link rel="stylesheet" href="css/admin.css">
-    <link rel="icon" type="./img/png" href="./img/favicon.png"/>

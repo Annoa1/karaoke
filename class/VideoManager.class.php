@@ -46,12 +46,13 @@ public function add(Video $video) {
     // Si l'artiste est précisé
     foreach ($video->artist() as $art) {
       $rq = $this->_db->prepare(
-        'INSERT INTO TJ_REALISE_REA (VID ID, ART_ID)
+        'INSERT INTO TJ_REALISE_REA (VID_ID, ART_ID)
         VALUES (:idVideo, :idArtist)'
       );
       $rq->bindvalue(':idVideo', $id);
       $rq->bindvalue(':idArtist', $art->id());
       $rq->execute();
+      var_dump($rq);
     }
 
     // Retourne l'id si il y a eu une insertion
@@ -121,7 +122,7 @@ public function add(Video $video) {
       if ($nbArtists == 1) {
         $art = new Artist();
         $art->setId($donnees['idArt']);
-        $art->setNom($donnes['nomArt']);
+        $art->setNom($donnees['nomArt']);
         $video->addArtist($art);
       }
       else if ($nbArtists > 1) {
@@ -183,7 +184,7 @@ public function add(Video $video) {
       if ($nbArtists == 1) {
         $art = new Artist();
         $art->setId($donnees['idArt']);
-        $art->setNom($donnes['nomArt']);
+        $art->setNom($donnees['nomArt']);
         $video->addArtist($art);
       }
       else if ($nbArtists > 1) {

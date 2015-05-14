@@ -6,7 +6,7 @@ require_once 'class/Artist.class.php';
 // Declaration des attributs
 class Video {
   private $_id;
-  private $_title;
+  private $_title = "";
   private $_year = null;
   private $_sbt = false; 
   private $_pays = null; // instance de pays
@@ -52,6 +52,14 @@ class Video {
     if ($prog)
       return "sbt/srt_prog/".$this->id().".srt";
     return "sbt/srt/".$this->id().".srt";
+  }
+
+  public function sbtPath($type = "vtt") {
+    switch ($type) {
+      case 'srt':       return $this->srtPath(); break;
+      case 'srt_prog':  return $this->srtPath(true); break;
+      default:          return $this->vttPath(); break;
+    }
   }
 
   public function artistToString($separator) {

@@ -14,11 +14,11 @@ check_admin();
 // vérification des initialisations des variables $_POST
 if(!isset($_POST['titre']) || !isset($_POST['annee'])) {
 	$_SESSION['msg'] = "Code Erreur = 1";
-	// go_home('admin-video.php');
+	go_home('admin-video.php');
 }
 if(!isset($_POST['pays']) || !isset($_POST['artist'])) {
 	$_SESSION['msg'] = "Code Erreur = 2";
-	// go_home('admin-video.php');
+	go_home('admin-video.php');
 }
 
 // connexion BDD
@@ -39,13 +39,13 @@ $video->setYear($_POST['annee']);
 $tab = explode('-', $_POST['pays'], 2);
 if (sizeof($tab) != 2) {
 	$_SESSION['msg'] = "Code Erreur = 3";
-	// go_home('admin-video.php');
+	go_home('admin-video.php');
 }
 $idPays = $tab[0];
 $pays = $paysManager->get($idPays);
 if (!$pays) {
 	$_SESSION['msg'] = "Code Erreur = 4";
-	// go_home('admin-video.php');
+	go_home('admin-video.php');
 }
 $video->setPays($pays);
 
@@ -82,12 +82,12 @@ foreach ($_POST['artist'] as $artString) {
 // S'il n'existe pas, erreur
 if (!isset($_FILES['video'])) {
 	$_SESSION['msg'] = "Code Erreur = 9";
-	// go_home('admin-video.php');
+	go_home('admin-video.php');
 }
 // Si sa taille est nulle ou si ce n'est pas un mp4 erreur
 if (!$_FILES['video']['size'] || !($_FILES['video']['size']!='video/mp4')) {
 	$_SESSION['msg'] = "Code Erreur = 10";
-	// go_home('admin-video.php');
+	go_home('admin-video.php');
 }
 
 $sbt = false;
@@ -99,22 +99,22 @@ if (isset($_FILES['vtt']) && isset($_FILES['srt']) && isset($_FILES['srt_prog'])
 		// Vérification des extensions 
 		if (substr($_FILES['vtt']['name'], -3) != 'vtt') {
 			$_SESSION['msg'] = "Code Erreur = 6";
-			// go_home('admin-video.php');
+			go_home('admin-video.php');
 		}
 		if (substr($_FILES['srt']['name'], -3) != 'srt') {
 			$_SESSION['msg'] = "Code Erreur = 7";
-			// go_home('admin-video.php');
+			go_home('admin-video.php');
 		}
 		if (substr($_FILES['srt_prog']['name'], -3) != 'srt') {
 			$_SESSION['msg'] = "Code Erreur = 8";
-			// go_home('admin-video.php');
+			go_home('admin-video.php');
 		}
 		// On peut charger les sous-titres dans la BDD
 		$sbt = true;
 	}
 	else {
 		$_SESSION['msg'] = "Code Erreur = 5";
-		// go_home('admin-video.php');
+		go_home('admin-video.php');
 	}
 }
 
@@ -124,7 +124,7 @@ $video->setSbt($sbt);
 $idVideo = $videoManager->add($video);
 if (!$idVideo) {
 	$_SESSION['msg'] = "Code Erreur = 9";
-	// go_home('admin-video.php');
+	go_home('admin-video.php');
 }
 
 
@@ -136,10 +136,9 @@ if ($sbt) {
 	move_uploaded_file($_FILES['srt_prog']['tmp_name'], 'sbt/srt_prog/'.$idVideo.'.srt');
 }
 
-var_dump($video);
 
 $_SESSION['msg'] = "La vidéo ".$video->title()." a bien été ajoutée.";
-// go_home('admin-video.php');
+go_home('admin-video.php');
 
 
 ?>

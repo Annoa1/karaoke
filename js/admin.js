@@ -89,4 +89,13 @@
     art_buttons.click(modifArtist);
   }
 
+  // admin-play : changement de sous-titres
+  var sbt_form;
+  if (sbt_form = $('#sbt_form')) {
+    $('input[name="sbt"]').change(function(){
+      $('form').submit();
+    });
+  }
+
+
 })();
