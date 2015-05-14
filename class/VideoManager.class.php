@@ -97,7 +97,7 @@ public function add(Video $video) {
         FROM T_VIDEO_VID
           NATURAL LEFT JOIN TJ_REALISE_REA
           NATURAL LEFT JOIN T_ARTIST_ART
-          NATURAL LEFT JOIN TJ_PAYS_PAY
+          NATURAL LEFT JOIN TR_PAYS_PAY
         WHERE VID_ID = :id
         GROUP BY VID_ID'
       );

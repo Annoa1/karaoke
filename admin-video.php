@@ -61,8 +61,8 @@ $videos = $videoManager->getList();
               echo ($video->pays())? '<td>'.$video->pays()->nom().'</td>':'<td>?</td>';
               echo ($video->sbt())? '<td>Oui</td>':'<td></td>';
               echo '<td>'.$video->artistToString(", ").'</td>';
-              echo '<td><a href=deleteVideo.php?id='.$video->id().'><button>Supprimer</button></a></td>';
-              echo '<td><a href=modif.php?id='.$video->id().'><button>Modifier</button></a></td>';
+              echo '<td class="td_button"><a href="modif.php?id='.$video->id().'"><button class="icones">D</button></a></td>';
+              echo '<td class="td_button"><a href="deleteVideo.php?id='.$video->id().'""><button class="icones">X</button></a></td>';
               echo '</tr> ';
             }
 

@@ -10,6 +10,7 @@ include 'class/VideoManager.class.php';
 check_admin();
 
 if (!isset($_GET['id'])) {
+  $_SESSION['msg'] = "L'id n'existe pas.";
   go_home('admin-video.php');
 }
 
@@ -24,10 +25,12 @@ if ($videotodelete) {
   $videos = $videoManager->delete($videotodelete);
 }
 else {
+  $_SESSION['msg'] = "Erreur dans l'obtention de la vidéo.";
   go_home('admin-video.php');
 }
 
 // redirection pour retouner sur la page de gestion des videos
+$_SESSION['msg'] = "La vidéo ".$videotodelete->title()." a bien été supprimée.";
 go_home('admin-video.php');
  
 ?>
