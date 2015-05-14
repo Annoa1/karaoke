@@ -97,7 +97,7 @@ class ArtistManager {
   public function add(Artist $artist) {
     $rq = $this->_db->prepare(
         'INSERT INTO T_ARTIST_ART (ART_NOM)
-        VALUE (:nom)'
+        VALUES (:nom)'
       );
 
     $rq->bindvalue(':nom', $artist->nom());

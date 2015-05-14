@@ -22,6 +22,11 @@ $videotodelete = $videoManager->get($id);
 
 
 if ($videotodelete) {
+  // Suppression des fichiers
+  @unlink($videotodelete->path());
+  @unlink($videotodelete->srtPath(true));
+  @unlink($videotodelete->srtPath(false));
+  @unlink($videotodelete->vttPath());
   $videos = $videoManager->delete($videotodelete);
 }
 else {
@@ -32,5 +37,7 @@ else {
 // redirection pour retouner sur la page de gestion des videos
 $_SESSION['msg'] = "La vidéo ".$videotodelete->title()." a bien été supprimée.";
 go_home('admin-video.php');
+
+
  
 ?>

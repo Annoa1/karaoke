@@ -82,7 +82,7 @@ public function add(Video $video) {
   // Retourne une video
   // TODO : ajouter les artists
   public function get($id) {
-    echo $id;
+    
     $rq = $this->_db->prepare(
       'SELECT VID_ID as "id",
               VID_TITLE as "title",

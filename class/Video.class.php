@@ -50,8 +50,8 @@ class Video {
   // Retourne le chemin du sous-titre vtt
   public function srtPath($prog = false) {
     if ($prog)
-      return "sbt/srt_prog/".$this->getId().".srt";
-    return "sbt/srt/".$this->getId().".srt";
+      return "sbt/srt_prog/".$this->id().".srt";
+    return "sbt/srt/".$this->id().".srt";
   }
 
   public function artistToString($separator) {
