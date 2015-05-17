@@ -10,6 +10,12 @@
   src: url(../font/PWBubbles.ttf) format("truetype");
 }
 
+@font-face 
+{
+  font-family: "chronofont";
+  src: url(../font/DS-DIGIB.ttf) format("truetype");
+}
+
 *
 {
 	margin: 0;
@@ -182,17 +188,28 @@ header
 
 #choice
 {
-	margin: 0 auto;
 	display: inline-block;
+	/*margin: 0 auto;*/
+	margin: 50px auto;
+	width:100%;
+}
+
+#chrono
+{
+	font-family: "chronofont";
+	font-size: 80px;
+	margin: 0 auto 30px 50%;
 }
 
 #poulpeContainer 
 {
+	text-align: center;
 }
 
 .poulpe
 {
 	display: inline-block;
+	text-align:bottom;
 	
 }
 
