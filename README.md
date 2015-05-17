@@ -1,3 +1,3 @@
 # karaoke
 
-Bonjour Tofuw et Léonie ! 
+Site en cours de développement.
