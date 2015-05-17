@@ -208,20 +208,66 @@ public function add(Video $video) {
 
     return $videos;
   }
-// Retourne les vidéos de maniére aléatoire
-  public function getRand(){ 
+// Retourne les vidéos de maniére aléatoire 
+  //
+  public function getRand()
+  { 
     $videos = [];
 
     $rq = $this->_db->query(
-        'SELECT  VID_ID as "id",
-        VID_TITLE as "title", 
-        VID_YEAR as "year",
-        VID_SBT as "sbt"
-        FROM T_VIDEO_VID 
+        'SELECT VID_ID as "id",
+              VID_TITLE as "title",
+              VID_YEAR as "year",
+              VID_SBT as "sbt",
+              PAY_ID as "idPays",
+              PAY_NOM as "nomPays",
+              ART_ID as "idArt",
+              COUNT(ART_ID) as "nbArtists",
+              ART_ID as "idArt",
+              ART_NOM as "nomArt"
+        FROM T_VIDEO_VID
+          NATURAL LEFT JOIN TJ_REALISE_REA
+          NATURAL LEFT JOIN T_ARTIST_ART
+          NATURAL JOIN TR_PAYS_PAY
+        GROUP BY VID_ID
         order by rand() LIMIT 0,3 '
       );
+    
     while ($donnees = $rq->fetch(PDO::FETCH_ASSOC)) {
-      $videos[] = new Video($donnees);
+      $video = new Video($donnees);
+
+      // Si pays
+      if ($donnees['idPays']) {
+        $pays = new Pays();
+        $pays->setId($donnees['idPays']);
+        $pays->setNom($donnees['nomPays']);
+        $video->setPays($pays);
+      }
+      // Si artiste
+      $nbArtists = (int) $donnees['nbArtists'];
+      if ($nbArtists == 1) {
+        $art = new Artist();
+        $art->setId($donnees['idArt']);
+        $art->setNom($donnees['nomArt']);
+        $video->addArtist($art);
+      }
+      else if ($nbArtists > 1) {
+        $sql = $this->_db->prepare(
+          'SELECT ART_ID as "id",
+                  ART_NOM as "nom"
+            FROM TJ_REALISE_REA
+              NATURAL JOIN T_ARTIST_ART
+            WHERE VID_ID = :id '
+          );
+        $sql->bindvalue(':id', $video->id());
+        $sql->execute();
+
+        while ($data = $sql->fetch(PDO::FETCH_ASSOC)) {
+          $art = new Artist($data);
+          $video->addArtist($art);
+        }
+      }
+      $videos[] = $video;
     }
 
     return $videos;

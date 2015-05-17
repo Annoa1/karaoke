@@ -15,11 +15,17 @@
 		// On vérifie l'existance de la video
 		$idVideo = $_GET["id"];
 		$video=$videoManager->get($idVideo);
+
 		if(!$video)
 		{
 			// Si elle n'existe pas on retourne a l'index
 			go_home();
 		}
+
+		$titre = $video->title();
+		$chanteur = ($video->artist())? " - ".$video->artistToString(", ") : "";
+		$annee = ($video->year())? " (".$video->year().") " : "";
+		$pays = ($video->pays())? " [".$video->pays()->nom()."] " : "";
 	}
 	else
 	{
@@ -45,14 +51,17 @@
 			<?php 
 				if(!$afficherPoulpe){ ?>
 				<div id="videoContainer">
+					<p>
+						<?php echo $titre.$chanteur.$annee.$pays ?>
+					</p>
 					<video controls autoplay>
 						<?php 
-						// AJOUTER LE CHEMIN DE LA VIDEO
+							/**/
 							echo '<source src="'.$video->path().'"/>';
 						?>
 					</video>
-					<div>
-						<button id="relancerPoulpes">
+					<div id="relancerPoulpes">
+						<button>
 							<a href="play.php">Relancer les poulpes</a>
 						</button>
 					</div>					
@@ -65,16 +74,26 @@
 					<div id="poulpeContainer">
 			        	<div class="poulpe">
 			        		<!-- on renvoit à la page play.php la video -->
-			        		<a href="play.php?id=<?php echo $videos[0]->id() ?>"><img src="./img/octopus_cute_green.png"></a>
-			        		<a class="title" href="play.php?id=<?php echo $videos[0]->path() ?>">Pays A</a>
+			        		<a href="play.php?id=<?php echo $videos[0]->id() ?>"><img src="./img/octopus_cute_green.png"></a><br>
+			        		<a class="title" href="play.php?id=<?php echo $videos[0]->path() ?>">
+				        		<?php echo $videos[0]->pays()->nom() ?><br>
+				        		<?php echo $videos[0]->title() ?>
+			        		</a>
 			        	</div> 
 			        	<div class="poulpe">
-			        		<a href="play.php?id=<?php echo $videos[1]->id() ?>"><img src="./img/octopus_cute_pink.png"></a>
-			        		<a class="title" href="play.php?id=<?php echo $videos[1]->path() ?>">Pays B</a>
+			        		<a href="play.php?id=<?php echo $videos[1]->id() ?>"><img src="./img/octopus_cute_pink.png"></a><br>
+			        		<a class="title" href="play.php?id=<?php echo $videos[1]->path() ?>">
+			        			<!-- Affichage du pays de la chanson et du titre de la chanson -->
+			        			<?php echo $videos[1]->pays()->nom() ?><br>
+			        			<?php echo $videos[1]->title() ?>
+			        		</a>
 			        	</div> 
 			        	<div class="poulpe">
-			        		<a href="play.php?id=<?php echo $videos[2]->id() ?>"><img src="./img/octopus_cute_purple.png"></a>
-			        		<a class="title" href="play.php?id=<?php echo $videos[2]->path() ?>">Pays C</a>
+			        		<a href="play.php?id=<?php echo $videos[2]->id() ?>"><img src="./img/octopus_cute_purple.png"></a><br>
+			        		<a class="title" href="play.php?id=<?php echo $videos[2]->path() ?>">
+			        			<?php echo $videos[2]->pays()->nom() ?><br>
+			        			Vidéo Mystère
+			        		</a>
 			        	</div>
 			        </div>
 
@@ -86,6 +105,6 @@
 
 		<?php include 'include/footer.php'; ?>
 		<script src="js/jquery.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/chrono.js"></script>
 	</body>
 </html>

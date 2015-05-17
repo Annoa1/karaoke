@@ -20,6 +20,7 @@
 {
 	margin: 0;
 	padding: 0;
+	font-family: fantasy, arial;
 }
 
 html, body 
@@ -198,7 +199,8 @@ header
 {
 	font-family: "chronofont";
 	font-size: 80px;
-	margin: 0 auto 30px 50%;
+	text-align: center;
+	/*margin: 0 auto 30px 50%;*/
 }
 
 #poulpeContainer 
@@ -209,8 +211,7 @@ header
 .poulpe
 {
 	display: inline-block;
-	text-align:bottom;
-	
+	margin: 30px 20px 20px 20px;	
 }
 
 #play .title
@@ -231,6 +232,7 @@ header
 	height: 360px;
 	margin: 0 auto;
 	top: 50px;
+	text-align: center;
 	position: relative;
 	/*background-color: red;*/
 }
@@ -244,6 +246,14 @@ header
 
 #relancerPoulpes
 {
+	margin: 20px auto;
+	text-align: center;
+}
+
+#relancerPoulpes button
+{
+	font-size: 20px;
+	padding: 10px;
 }
 
 .submitButton
