@@ -9,7 +9,7 @@ $( document ).ready(function()
   //   // $choice.slideToggle()(); Au clic, fait apparaitre/disparaitre les poulpes
   //   $choice.slideDown()();
   // });
-  
+/*  
   var chrono;
 
   if (chrono = $('#chrono')) {
@@ -37,4 +37,4 @@ $( document ).ready(function()
     } 
   }
 
-});
+});*/

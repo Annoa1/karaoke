@@ -52,8 +52,8 @@
 						?>
 					</video>
 					<div>
-						<button href="play.php" id="relancerPoulpes">
-							Relancer les poulpes
+						<button id="relancerPoulpes">
+							<a href="play.php">Relancer les poulpes</a>
 						</button>
 					</div>					
 				</div>
@@ -61,20 +61,24 @@
 				if ($afficherPoulpe) { ?>
 				<div id="choice">
 					<div id="chrono">--</div>
-        	<div class="poulpe">
-        		<!-- on renvoit à la page play.php la video -->
-        		<a href="play.php?id=<?php echo $videos[0]->id() ?>"><img src="./img/octopus_cute_green.png"></a>
-        		<a class="title" href="play.php?id=<?php echo $videos[0]->path() ?>">Pays A</a>
-        	</div> 
-        	<div class="poulpe">
-        		<a href="play.php?id=<?php echo $videos[1]->id() ?>"><img src="./img/octopus_cute_pink.png"></a>
-        		<a class="title" href="play.php?id=<?php echo $videos[1]->path() ?>">Pays B</a>
-        	</div> 
-        	<div class="poulpe">
-        		<a href="play.php?id=<?php echo $videos[2]->id() ?>"><img src="./img/octopus_cute_purple.png"></a>
-        		<a class="title" href="play.php?id=<?php echo $videos[2]->path() ?>">Pays C</a>
-        	</div>
-        	<input type="hidden" id="default_id" value="<?php echo $videos[2]->id() ?>">
+
+					<div id="poulpeContainer">
+			        	<div class="poulpe">
+			        		<!-- on renvoit à la page play.php la video -->
+			        		<a href="play.php?id=<?php echo $videos[0]->id() ?>"><img src="./img/octopus_cute_green.png"></a>
+			        		<a class="title" href="play.php?id=<?php echo $videos[0]->path() ?>">Pays A</a>
+			        	</div> 
+			        	<div class="poulpe">
+			        		<a href="play.php?id=<?php echo $videos[1]->id() ?>"><img src="./img/octopus_cute_pink.png"></a>
+			        		<a class="title" href="play.php?id=<?php echo $videos[1]->path() ?>">Pays B</a>
+			        	</div> 
+			        	<div class="poulpe">
+			        		<a href="play.php?id=<?php echo $videos[2]->id() ?>"><img src="./img/octopus_cute_purple.png"></a>
+			        		<a class="title" href="play.php?id=<?php echo $videos[2]->path() ?>">Pays C</a>
+			        	</div>
+			        </div>
+
+			        <input type="hidden" id="default_id" value="<?php echo $videos[2]->id() ?>">
 				</div>
 			<?php } ?>
 

@@ -183,6 +183,17 @@ header
 #choice
 {
 	margin: 0 auto;
+	display: inline-block;
+}
+
+#poulpeContainer 
+{
+}
+
+.poulpe
+{
+	display: inline-block;
+	
 }
 
 #play .title
