@@ -164,6 +164,13 @@ class UserManager {
     return false;
   }
 
+  public function setNote(User $user, Video $video, $val) {
+    $rq = $this->_db->prepare(
+        'INSERT INTO TJ_NOTE_NOT (USR_ID, VID_ID, NOT_VAL)
+        VALUES (:idUser, :idVideo, :val)'
+      );
+  }
+
 }
 
 
