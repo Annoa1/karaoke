@@ -56,18 +56,21 @@
 			<?php } 
 				if ($afficherPoulpe) { ?>
 				<div id="choice">
-		        	<div>
+					<div>
+						<p class="chronometre">COMPTE A REBOURS</p>
+					</div>
+		        	<div class="poulpe">
 		        		<!-- on renvoit à la page play.php la video -->
-		        		<a class="title" href="play.php?id=<?php echo $videos[0]->path() ?>">Pays A</a>
 		        		<a href="play.php?id=<?php echo $videos[0]->id() ?>"><img src="./img/octopus_cute_green.png"></a>
+		        		<a class="title" href="play.php?id=<?php echo $videos[0]->path() ?>">Pays A</a>
 		        	</div> 
-		        	<div>
-		        		<a class="title" href="play.php?id=<?php echo $videos[1]->path() ?>">Pays B</a>
+		        	<div class="poulpe">
 		        		<a href="play.php?id=<?php echo $videos[1]->id() ?>"><img src="./img/octopus_cute_pink.png"></a>
+		        		<a class="title" href="play.php?id=<?php echo $videos[1]->path() ?>">Pays B</a>
 		        	</div> 
-		        	<div>
-		        		<a class="title" href="play.php?id=<?php echo $videos[2]->path() ?>">Pays C</a>
+		        	<div class="poulpe">
 		        		<a href="play.php?id=<?php echo $videos[2]->id() ?>"><img src="./img/octopus_cute_purple.png"></a>
+		        		<a class="title" href="play.php?id=<?php echo $videos[2]->path() ?>">Pays C</a>
 		        	</div>
 
 				</div>
