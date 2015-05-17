@@ -18,7 +18,8 @@ $( document ).ready(function()
     var runChrono = function() {
 
       if (t < 0) {
-        window.location.href = "index.php";
+        var id = $('#default_id').html();
+        window.location.href = "play.php?id="+id;
       }
       else {
         // affichage
