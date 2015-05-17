@@ -14,21 +14,27 @@ $( document ).ready(function()
 
   if (chrono = $('#chrono')) {
 
-    var t = 10;
-    var runChrono = function() {
+    var regex = /id=/;
 
-      if (t < 0) {
-        var id = $('#default_id').html();
-        window.location.href = "play.php?id="+id;
-      }
-      else {
-        // affichage
-        chrono.html(t+' !');
-        t = t - 1;
-      }
-    }
+    if (!regex.test(window.location.href)) {
+      var t = 10;
+      var runChrono = function() {
 
-    window.setInterval(runChrono, 1000);
+        if (t < 0) {
+          var id = $('#default_id').val();
+          var adress = "play.php?id="+id;
+          // console.log(adress);
+          window.location.href = adress;
+        }
+        else {
+          // affichage
+          chrono.html(t+' !');
+          t = t - 1;
+        }
+      }
+
+      window.setInterval(runChrono, 1000);
+    } 
   }
 
 });
