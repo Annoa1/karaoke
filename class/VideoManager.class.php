@@ -73,8 +73,6 @@ public function add(Video $video) {
     $rq->bindvalue(':id', $video->id());
     $rq->execute();
 
-    var_dump($rq);
-
     // Retourne vrai si il y a eu une suppression
     $count = $rq->rowCount();
     return ($count>0);
@@ -228,51 +226,25 @@ public function add(Video $video) {
   }
 
   // Modifie une video dans la BDD
-  public function update(VideoManager $video) {
+  public function update(Video $video) {
 
-    if ($video)
-      $videotoadd=new Video($video);
-    else
-      return false;
-
- 
 // maj table video
     
-     $rq = $this->_db->prepare(
-        'UPDATE T_VIDEO_VID
-        SET VID_TITLE= :title,
-            VID_YEAR= :year,
-        WHERE VID_ID = :id'
+     $rqvideo = $this->_db->prepare(
+        'UPDATE `t_video_vid` 
+          SET `VID_TITLE`=:title,
+              `VID_YEAR`=:year
+          WHERE `VID_ID`=:id'
       );
 
 
-    $rq->bindvalue(':title', $video->title());
-    $rq->bindvalue(':year', $video->year());
-    $rq->execute();
-
+    $rqvideo->bindvalue(':title', $video->title());
+    $rqvideo->bindvalue(':year', $video->year());
+    $rqvideo->bindvalue(':id', $video->id());
+    $rqvideo->execute();
 }
-// // maj table artiste
-//     // recuperation de l'Id de l'artiste en rapport avec la video
-//     $rq = $this->_db->prepare(
-//       'SELECT  J.ART_ID 
-
-//       from T_VIDEO_VID V,tj_realise_rea J
-//       WHERE  V.VID_ID = :id
-//       AND J.VID_ID== :id
-//       AND V.VID_ID=J.VID_ID
-//     ');
-//     $rqIDart=$rq->execute();
-//     var_dump($rqIDart);
-//     // maj nom artiste
-
    
-//     $rq = $this->_db->prepare(
-//         'UPDATE  t_artist_art
-//         SET ART_NOM= :nomArt,
-//         WHERE ART__ID ='.$rqIDart
-//       );
-//    }
-// //fin update
+
 }
 
 

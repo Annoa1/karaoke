@@ -57,16 +57,12 @@ var_dump($video);
       <h1>Modifier la video : </h1>
       <form action="majDB.PHP" method="post">
         <?php
-
+            echo '<input name="id" type="hidden" value="'.$video->id().'"><br>';
             echo '<label>Titre</label>';
+
             echo '<input name="titre" type="text" value="'.$video->title().'"><br>';
             echo '<label>Annee</label>';
             echo '<input name = "annee"type="text" value="'.$video->year().'"><br>';
-            echo '<label>Artiste</label>';
-            echo '<input name="artiste" type="text" value="'.$video->artistToString(", ").'"><br>';
-            echo '<label>Pays</label>';
-            echo '<input name = "pays"type="text" value="'.$video->pays()->nom().'"><br>';
-
             echo '<br><button type="submit" >Mettre a jour</button>';
 
         ?>
