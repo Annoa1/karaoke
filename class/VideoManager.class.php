@@ -131,7 +131,7 @@ public function add(Video $video) {
               NATURAL JOIN T_ARTIST_ART
             WHERE VID_ID = :id '
           );
-        $sql->bindvalue('data:id', $id);
+        $sql->bindvalue(':id', $id);
         $sql->execute();
 
         while ($data = $sql->fetch(PDO::FETCH_ASSOC)) {
