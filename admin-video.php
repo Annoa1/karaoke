@@ -42,7 +42,7 @@ $videos = $videoManager->getList();
             echo "<p>".$_SESSION['msg']."</p>";
             $_SESSION['msg'] = null;
         }
-        // var_dump($videos);
+       //var_dump($videos);
        ?>
         <table>
             <tr>

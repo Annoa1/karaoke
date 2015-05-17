@@ -13,11 +13,11 @@ check_admin();
 
 // vérification des initialisations des variables $_POST
 if(!isset($_POST['titre']) || !isset($_POST['annee'])) {
-	$_SESSION['msg'] = "Code Erreur = 1";
+	$_SESSION['msg'] = "Code Erreur = 1 Merci de remplir le titre ou l'annee";
 	go_home('admin-video.php');
 }
 if(!isset($_POST['pays']) || !isset($_POST['artist'])) {
-	$_SESSION['msg'] = "Code Erreur = 2";
+	$_SESSION['msg'] = "Code Erreur = 2 Merci de remplir le pays ou l'artiste";
 	go_home('admin-video.php');
 }
 
@@ -38,7 +38,7 @@ $video->setYear($_POST['annee']);
 // Pays
 $tab = explode('-', $_POST['pays'], 2);
 if (sizeof($tab) != 2) {
-	$_SESSION['msg'] = "Code Erreur = 3";
+	$_SESSION['msg'] = "Code Erreur = 3 merci de respecter l'ecrire du code pays . ex: I-T, F-R";
 	go_home('admin-video.php');
 }
 $idPays = $tab[0];
