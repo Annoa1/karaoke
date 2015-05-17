@@ -7,7 +7,7 @@
 	include 'class/VideoManager.class.php';
 	$db = db_connexion();
 	$videoManager = new VideoManager($db);
-	// $chemin=$myvideo->path();
+	//$chemin=$myvideo->path();
 	$afficherPoulpe=true;
 	if(isset($_GET["id"]))
 	{
@@ -45,9 +45,10 @@
 			<?php 
 				if(!$afficherPoulpe){ ?>
 				<div id="videoContainer">
-					<video controls >
+					<video controls autoplay>
 						<?php 
-							echo '<source src='.$chemin.' />';
+						// AJOUTER LE CHEMIN DE LA VIDEO
+							//echo '<source src='video/'.$idVideo.'mp4'/>';
 						?>
 
 					</video>

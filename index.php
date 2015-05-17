@@ -21,7 +21,7 @@
 		<div class="mainContainer">
 
 			<div id="play">
-				<p><a href="play.php"><img class="start" src="./img/kogmaw.png"></a></p>							
+				<div class="kogmawContainer"><a href="play.php"><img class="start" src="./img/kogmaw.png"></a></div>							
 			</div>
 
 		</div>
