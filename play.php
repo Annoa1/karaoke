@@ -51,9 +51,11 @@
 							echo '<source src="'.$video->path().'"/>';
 						?>
 					</video>
-					<button id="relancerPoulpes">
-						Relancer les poulpes
-					</button>
+					<div>
+						<button href="play.php" id="relancerPoulpes">
+							Relancer les poulpes
+						</button>
+					</div>					
 				</div>
 			<?php } 
 				if ($afficherPoulpe) { ?>
