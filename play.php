@@ -48,10 +48,12 @@
 					<video controls autoplay>
 						<?php 
 						// AJOUTER LE CHEMIN DE LA VIDEO
-							//echo '<source src='video/'.$idVideo.'mp4'/>';
+							echo '<source src="'.$video->path().'"/>';
 						?>
-
 					</video>
+					<button id="relancerPoulpes">
+						Relancer les poulpes
+					</button>
 				</div>
 			<?php } 
 				if ($afficherPoulpe) { ?>
