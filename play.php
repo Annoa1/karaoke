@@ -59,6 +59,9 @@
 							/**/
 							echo '<source src="'.$video->path().'"/>';
 						?>
+
+					<track src="<?php echo $video->sbtPath("vtt"); ?>" kind="subtitles" srclang="en" label="English" default/>
+
 					</video>
 					<div id="relancerPoulpes">
 						<button>

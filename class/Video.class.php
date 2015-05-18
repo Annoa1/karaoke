@@ -47,7 +47,7 @@ class Video {
     return "sbt/vtt/".$this->id().".vtt";
   }
 
-  // Retourne le chemin du sous-titre vtt
+  // Retourne le chemin du sous-titre srt
   public function srtPath($prog = false) {
     if ($prog)
       return "sbt/srt_prog/".$this->id().".srt";
