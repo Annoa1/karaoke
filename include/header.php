@@ -9,7 +9,7 @@
         <nav class="menuHeader">
             <ul>
                 <li><a href="index.php">Accueil</a></li>
-                <li><a href="contact.php">Contact</a></li>
+                <li><a href="contact.php">A Propos</a></li>
 
                 <?php if (isset($_SESSION['user'])) { ?>
                     <li><a href="deconnexion.php">Déconnexion</a></li>

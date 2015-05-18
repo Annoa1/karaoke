@@ -23,9 +23,6 @@
 			<div id="play">
 				<div class="kogmawContainer"><a href="play.php"><img class="start" src="./img/kogmaw.png"></a></div>							
 			</div>
-			<p> 
-				<a href="evolution.html"> Diagramme de GANTT Oktosing </a>
-			</p>
 		</div>
 
 		<?php include 'include/footer.php'; ?>

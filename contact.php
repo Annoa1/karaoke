@@ -17,7 +17,9 @@ session_start(); // A laisser en premiere ligne
 
         <div class="mainContainer">
             <div class="mainContainerContent">
-                <p>BLAHBLAHBLAH</p>
+                <p> 
+                    <a href="./evolution.html"> Diagramme de GANTT Oktosing </a>
+                </p>
             </div>
         </div>
 
