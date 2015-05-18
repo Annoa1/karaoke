@@ -7,7 +7,7 @@ $( document ).ready(function()
     var regex = /id=/;
 
     if (!regex.test(window.location.href)) {
-      var t = 10;
+      var t = 5;
       var runChrono = function() {
 
         if (t < 0) {
