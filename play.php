@@ -64,10 +64,10 @@
 
 					</video>
 					<div id="relancerPoulpes">
-						<button>
-							<a href="play.php">Relancer les poulpes</a>
-						</button>
-					</div>					
+						
+						<a href="play.php"><button>Relancer les poulpes</button></a>
+						
+					</div>				
 				</div>
 			<?php } 
 				if ($afficherPoulpe) { ?>
